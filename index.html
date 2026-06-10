@@ -45,7 +45,7 @@
     line-height: 1;
   }
   .nav-logo span { font-size: .7rem; display:block; letter-spacing:.18em; color:rgba(232,184,75,0.55); margin-top:1px; }
-  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links { display:flex; gap:1.5rem; list-style:none; }
   .nav-links a {
     text-decoration:none; font-size:.72rem; font-weight:700;
     letter-spacing:.2em; color:var(--muted); transition:color .2s;
@@ -278,6 +278,78 @@
     display:block; margin-bottom:.6rem;
   }
 
+  /* ─── CONCEPT LEAD ─── */
+  .concept-lead {
+    font-family:'Noto Sans JP',sans-serif; font-weight:900;
+    font-size:clamp(1.35rem,3.1vw,2.15rem); line-height:1.55;
+    color:var(--snow); margin-bottom:2.2rem; letter-spacing:.01em;
+  }
+  .concept-lead .em { color:var(--gold-light); }
+  .concept-sub {
+    font-size:.95rem; line-height:1.9; color:var(--muted);
+    max-width:760px; margin-bottom:.4rem;
+  }
+
+  /* ─── NEWS ─── */
+  #news { border-top:1px solid var(--border); background:rgba(0,0,0,0.22); }
+  #news .section-wrap { padding:3.2rem 2rem; }
+  .news-row {
+    display:flex; gap:1.4rem; align-items:center;
+    padding:.9rem 0; border-bottom:1px solid rgba(255,255,255,0.06);
+    font-size:.9rem;
+  }
+  .news-row:last-child { border-bottom:none; }
+  .news-date {
+    font-family:'Oswald',sans-serif; color:var(--gold);
+    white-space:nowrap; letter-spacing:.08em; min-width:104px;
+  }
+  .news-cat {
+    font-family:'Oswald',sans-serif; font-size:.6rem; letter-spacing:.14em;
+    color:var(--navy); background:var(--gold-light);
+    padding:.2rem .65rem; border-radius:2px; white-space:nowrap;
+  }
+  .news-cat.info { background:var(--green-light); }
+  .news-text { color:rgba(245,245,240,0.82); line-height:1.55; }
+
+  /* ─── TEAMS ─── */
+  #teams { border-top:1px solid var(--border); background:rgba(13,43,26,0.28); }
+  .teams-lead {
+    font-family:'Noto Sans JP',sans-serif; font-weight:900;
+    font-size:clamp(1.25rem,2.6vw,1.7rem); color:var(--snow);
+    margin-bottom:2rem; line-height:1.5;
+  }
+  .teams-lead .em { color:var(--gold-light); }
+  .teams-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .team-card {
+    background:rgba(255,255,255,0.04); border:1px solid var(--border);
+    border-left:3px solid var(--gold); border-radius:5px;
+    padding:1.1rem 1.35rem; transition:background .2s, transform .15s;
+  }
+  .team-card:hover { background:rgba(255,255,255,0.07); transform:translateY(-2px); }
+  .team-pref { font-family:'Oswald',sans-serif; font-size:.62rem; letter-spacing:.18em; color:var(--gold); margin-bottom:.4rem; }
+  .team-name { font-size:1.02rem; font-weight:700; color:var(--snow); line-height:1.35; }
+  .teams-note { font-size:.82rem; color:rgba(245,245,240,0.5); margin-top:1.8rem; line-height:1.75; }
+
+  /* ─── ACCESS ─── */
+  #access { border-top:1px solid var(--border); }
+  .access-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; }
+  .access-card {
+    background:rgba(255,255,255,0.04); border:1px solid var(--border);
+    border-top:3px solid var(--green-mid); border-radius:5px; padding:1.5rem 1.6rem;
+  }
+  .access-card h4 {
+    font-family:'Oswald',sans-serif; font-size:.82rem; letter-spacing:.16em;
+    color:var(--green-light); margin-bottom:1rem; display:flex; align-items:center; gap:.5rem;
+  }
+  .access-card ul { list-style:none; }
+  .access-card li {
+    font-size:.9rem; color:rgba(245,245,240,0.78); line-height:1.65;
+    padding:.5rem 0; border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .access-card li:last-child { border-bottom:none; }
+  .access-card li b { color:var(--gold-light); font-weight:700; }
+  .access-note { font-size:.8rem; color:rgba(245,245,240,0.45); margin-top:1.2rem; }
+
   @media(max-width:768px){
     nav { padding:0 1rem; }
     .nav-links { display:none; }
@@ -289,6 +361,10 @@
     .contact-grid { grid-template-columns:1fr; }
     .gallery-grid { grid-template-columns:1fr 1fr; }
     .hero-meta-item { padding:.6rem 1rem; font-size:.8rem; }
+    .teams-grid { grid-template-columns:1fr 1fr; }
+    .access-grid { grid-template-columns:1fr; }
+    .news-row { flex-wrap:wrap; gap:.55rem; }
+    .news-date { min-width:auto; }
   }
 </style>
 </head>
@@ -299,7 +375,9 @@
   <a class="nav-logo" href="#hero">HAKUBA SAMASAMA CUP<span>SUMMER 2026</span></a>
   <ul class="nav-links">
     <li><a href="#about">ABOUT<span class="nav-sub">大会について</span></a></li>
+    <li><a href="#teams">TEAMS<span class="nav-sub">出場チーム</span></a></li>
     <li><a href="#venue">VENUE<span class="nav-sub">会場</span></a></li>
+    <li><a href="#access">ACCESS<span class="nav-sub">アクセス</span></a></li>
     <li><a href="#outline">OUTLINE<span class="nav-sub">大会概要</span></a></li>
     <li><a href="#schedule">SCHEDULE<span class="nav-sub">日程</span></a></li>
     <li><a href="#entry">ENTRY<span class="nav-sub">エントリー</span></a></li>
@@ -348,12 +426,40 @@
   <img src="https://kirikubokan.com/assets/img/training/kv02.jpg" alt="合宿の様子" onerror="this.src='https://images.unsplash.com/photo-1551958219-acbc4b3d7c5c?w=600&q=80'">
 </div>
 
+<!-- NEWS -->
+<section id="news">
+  <div class="section-wrap">
+    <div class="label-tag">News</div>
+    <div class="sec-title" style="font-size:clamp(1.8rem,4vw,2.6rem);">最新情報</div>
+    <div class="gold-rule"></div>
+    <div class="news-row">
+      <span class="news-date">2026.06.01</span>
+      <span class="news-cat">ENTRY</span>
+      <span class="news-text">参加チームのエントリー受付中です。締切は <strong style="color:var(--gold-light);">6月30日（日）</strong>、定員16チームに達し次第終了します。</span>
+    </div>
+    <div class="news-row">
+      <span class="news-date">2026.05.20</span>
+      <span class="news-cat info">TEAMS</span>
+      <span class="news-text">出場チーム情報を公開しました。全国の強豪クラブが続々と参戦を表明しています。</span>
+    </div>
+    <div class="news-row">
+      <span class="news-date">2026.05.01</span>
+      <span class="news-cat info">INFO</span>
+      <span class="news-text">「Hakuba SamaSama Summer Cup 2026」公式サイトを公開しました。記念すべき第1回大会を白馬村で開催します。</span>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section id="about">
   <div class="section-wrap">
     <div class="label-tag">About the Tournament</div>
     <div class="sec-title">大会について</div>
     <div class="gold-rule"></div>
+    <div class="concept-lead">
+      北アルプスの麓で、次代を担う選手たちへ<br>
+      <span class="em">"本物の夏"</span>を。
+    </div>
     <div class="about-grid">
       <div class="about-copy">
         <p>
@@ -394,6 +500,39 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- TEAMS -->
+<section id="teams">
+  <div class="section-wrap">
+    <div class="label-tag">Participating Teams</div>
+    <div class="sec-title">出場チーム</div>
+    <div class="gold-rule"></div>
+    <div class="teams-lead">
+      全国の<span class="em">強豪クラブ</span>が、白馬に集う。
+    </div>
+    <div class="teams-grid">
+      <div class="team-card">
+        <div class="team-pref">TOKYO ／ 東京都</div>
+        <div class="team-name">自由が丘FC（A・B）</div>
+      </div>
+      <div class="team-card">
+        <div class="team-pref">IBARAKI ／ 茨城県</div>
+        <div class="team-name">鹿島アントラーズ スクール選抜</div>
+      </div>
+      <div class="team-card">
+        <div class="team-pref">TOKYO ／ 東京都</div>
+        <div class="team-name">METAサッカースクール選抜</div>
+      </div>
+      <div class="team-card">
+        <div class="team-pref">NAGANO ／ 長野県</div>
+        <div class="team-name">長野アンビシャス</div>
+      </div>
+    </div>
+    <p class="teams-note">
+      ※ 上記は参加が確定したチームの一部です。全16チーム（先着順）で開催予定で、出場チームは決定次第このページで順次公開いたします。
+    </p>
   </div>
 </section>
 
@@ -477,6 +616,51 @@
     </div>
   </div>
 </div>
+
+<!-- ACCESS -->
+<section id="access">
+  <div class="section-wrap">
+    <div class="label-tag">Access</div>
+    <div class="sec-title">アクセス</div>
+    <div class="gold-rule"></div>
+    <div class="access-grid">
+      <div class="access-card">
+        <h4>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="6" rx="1"></rect><circle cx="7.5" cy="17" r="1.5"></circle><circle cx="16.5" cy="17" r="1.5"></circle><path d="M5 11l1.5-4h11L19 11"></path></svg>
+          お車でお越しの場合
+        </h4>
+        <ul>
+          <li>上信越自動車道「長野IC」より <b>約65分</b></li>
+          <li>中央自動車道「安曇野IC」より <b>約75分</b></li>
+          <li>専用駐車場あり（無料・台数制限有）</li>
+        </ul>
+      </div>
+      <div class="access-card">
+        <h4>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"></rect><path d="M5 13h14"></path><path d="M8 19l-2 2M16 19l2 2"></path><circle cx="8.5" cy="16.5" r="1"></circle><circle cx="15.5" cy="16.5" r="1"></circle></svg>
+          電車でお越しの場合
+        </h4>
+        <ul>
+          <li>JR大糸線「白馬駅」より <b>タクシー約10分</b></li>
+          <li>北陸新幹線「長野駅」より <b>特急バス約70分</b></li>
+          <li>送迎ご希望の方は事務局までご連絡ください</li>
+        </ul>
+      </div>
+    </div>
+    <p class="access-note">会場：白馬岩岳 切久保館 専用天然芝グラウンド（〒399-9301 長野県北安曇郡白馬村北城12276）</p>
+    <div style="margin-top:1.2rem;">
+      <a href="https://maps.app.goo.gl/XD4phLXedH7NgFEv8" target="_blank" rel="noopener"
+         style="display:inline-flex; align-items:center; gap:.5rem;
+                background:rgba(200,146,42,0.15); border:1px solid rgba(200,146,42,0.5);
+                color:var(--gold-light); text-decoration:none;
+                font-family:'Oswald',sans-serif; font-size:.78rem; letter-spacing:.14em;
+                padding:.55rem 1.2rem; border-radius:3px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        Google Map で見る
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- OUTLINE -->
 <section id="outline">
@@ -585,42 +769,48 @@
       <div class="day-card">
         <div class="day-head">
           <div class="day-num">DAY 1</div>
-          <div class="day-label">8月28日（金）</div>
+          <div class="day-label">8/28（金）・交流戦</div>
         </div>
         <div class="day-body">
-          <div class="ev"><div class="t">08:00〜</div><div class="d">チーム受付・開会式</div></div>
-          <div class="ev"><div class="t">09:30〜</div><div class="d">予選リーグ 第1節・第2節</div></div>
-          <div class="ev"><div class="t">12:00〜</div><div class="d">昼食・休憩</div></div>
-          <div class="ev"><div class="t">13:30〜</div><div class="d">予選リーグ 第3節</div></div>
-          <div class="ev"><div class="t">16:30〜</div><div class="d">宿泊チェックイン・夕食（切久保館）</div></div>
+          <div class="ev"><div class="t">12:00〜</div><div class="d">受付</div></div>
+          <div class="ev"><div class="t">13:00〜</div><div class="d">希望チームによる交流戦<br><span style="font-size:.75rem;color:rgba(245,245,240,0.5);">早く到着したチームからグラウンド利用可</span></div></div>
+          <div class="ev"><div class="t">17:00〜</div><div class="d">宿舎チェックイン／夕食</div></div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-head">
           <div class="day-num">DAY 2</div>
-          <div class="day-label">8月29日（土）</div>
+          <div class="day-label">8/29（土）・予選リーグ</div>
         </div>
         <div class="day-body">
-          <div class="ev"><div class="t">08:30〜</div><div class="d">予選リーグ 最終節・順位確定</div></div>
-          <div class="ev"><div class="t">10:30〜</div><div class="d">決勝トーナメント 1回戦</div></div>
-          <div class="ev"><div class="t">12:30〜</div><div class="d">昼食・休憩</div></div>
-          <div class="ev"><div class="t">14:00〜</div><div class="d">準決勝</div></div>
-          <div class="ev"><div class="t">18:30〜</div><div class="d">夕食・交流会（任意参加）</div></div>
+          <div class="ev"><div class="t">07:00〜</div><div class="d">朝食</div></div>
+          <div class="ev"><div class="t">08:30〜</div><div class="d">予選リーグ開始（各チーム3試合）</div></div>
+          <div class="ev"><div class="t">14:00〜</div><div class="d">交流イベント<br><span style="font-size:.75rem;color:rgba(245,245,240,0.5);">例：チーム対抗イングランド式シュート対決 など</span></div></div>
+          <div class="ev"><div class="t">18:30〜</div><div class="d">夕食</div></div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-head">
           <div class="day-num">DAY 3</div>
-          <div class="day-label">8月30日（日）</div>
+          <div class="day-label">8/30（日）・順位決定戦</div>
         </div>
         <div class="day-body">
-          <div class="ev"><div class="t">09:00〜</div><div class="d">3位決定戦</div></div>
-          <div class="ev"><div class="t">10:30〜</div><div class="d">決　勝</div></div>
-          <div class="ev"><div class="t">12:00〜</div><div class="d">表彰式・閉会式</div></div>
-          <div class="ev"><div class="t">13:00〜</div><div class="d">解散（予定）</div></div>
+          <div class="ev"><div class="t">07:00〜</div><div class="d">朝食・チェックアウト準備</div></div>
+          <div class="ev"><div class="t">08:30〜</div><div class="d">準決勝・各順位決定戦</div></div>
+          <div class="ev"><div class="t">10:30〜</div><div class="d">3位決定戦・各順位決定戦</div></div>
+          <div class="ev"><div class="t">11:30〜</div><div class="d">決勝戦</div></div>
+          <div class="ev"><div class="t">13:30〜</div><div class="d">閉会式・表彰式／解散</div></div>
         </div>
       </div>
     </div>
+
+    <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:.6rem 1.5rem; font-size:.84rem; color:rgba(245,245,240,0.6); line-height:1.7;">
+      <span><strong style="color:var(--gold-light);">予選リーグ：</strong>16チームを A・B・C・D の4ブロック（各4チーム）に分け総当たり</span>
+      <span><strong style="color:var(--gold-light);">順位決定戦：</strong>予選同順位によるトーナメント（決着がつかない場合は即PK戦／3人制）</span>
+    </div>
+    <p style="margin-top:1rem; font-size:.78rem; color:rgba(245,245,240,0.42);">
+      ※ JFA「8人制サッカー競技規則」に準ずる ／ 予選L 15-5-15・決勝T 20-5-20（目安）。スケジュールは参加チーム数・天候等により変更となる場合があります。
+    </p>
   </div>
 </div>
 
@@ -656,12 +846,13 @@
     <div class="sec-title">参加エントリー</div>
     <div class="gold-rule" style="margin:0 auto 2rem;"></div>
     <p class="entry-note">
-      エントリー受付中です。定員になり次第、受付を終了いたします。<br>
+      エントリー受付中です。<strong style="color:var(--gold-light);">先着順</strong>で、定員16チームに達し次第、締切日前でも受付を終了いたします。<br>
       ご参加をご検討のチームはお早めにお申し込みください。
     </p>
     <div class="deadline-box">
-      <div class="dlabel">受付方法</div>
-      <div class="ddate" style="font-size:1.5rem;">先着順・定員になり次第締切</div>
+      <div class="dlabel">エントリー締切</div>
+      <div class="ddate">2026.6.30 SUN</div>
+      <div style="font-size:.72rem; letter-spacing:.12em; color:rgba(245,245,240,0.55); margin-top:.4rem;">※定員に達し次第、締切前でも受付終了</div>
     </div>
     <br><br>
     <a href="https://forms.gle/P5Rz1Xx3mSYLcUs27" target="_blank" rel="noopener" class="btn-primary">エントリーフォームへ →</a>
