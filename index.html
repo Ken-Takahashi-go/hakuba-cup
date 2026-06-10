@@ -42,7 +42,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.25rem; letter-spacing: .14em;
     color: var(--gold-light); text-decoration: none;
-    line-height: 1;
+    line-height: 1; white-space: nowrap;
   }
   .nav-logo span { font-size: .7rem; display:block; letter-spacing:.18em; color:rgba(168,119,26,0.8); margin-top:1px; }
   .nav-links { display:flex; gap:1.5rem; list-style:none; }
@@ -350,11 +350,64 @@
   .access-card li b { color:var(--gold-light); font-weight:700; }
   .access-note { font-size:.8rem; color:rgba(14,42,71,0.45); margin-top:1.2rem; }
 
+  /* ─── GALLERY SUBHEAD ─── */
+  .gal-sub {
+    font-family:'Oswald',sans-serif; font-size:.85rem; letter-spacing:.3em;
+    color:var(--gold); margin:0 0 1rem; display:flex; align-items:center; gap:.8rem;
+    font-weight:600;
+  }
+  .gal-sub::after { content:''; flex:1; height:1px; background:rgba(14,42,71,0.12); }
+
+  /* ─── NAV INSTAGRAM ICON ─── */
+  .nav-right { display:flex; align-items:center; gap:1.5rem; }
+  .nav-iglink {
+    display:flex; align-items:center; justify-content:center;
+    width:34px; height:34px; border-radius:9px; flex:none;
+    background:linear-gradient(45deg,#f9ce34,#ee2a7b 50%,#6228d7);
+    color:#ffffff; transition:transform .15s, opacity .2s;
+  }
+  .nav-iglink:hover { transform:translateY(-1px); opacity:.88; }
+
+  /* ─── INSTAGRAM SECTION ─── */
+  #sns { border-top:1px solid var(--border); background:rgba(46,158,91,0.04); }
+  .ig-head { display:flex; align-items:center; gap:1.2rem; margin-bottom:2.2rem; flex-wrap:wrap; }
+  .ig-icon {
+    width:56px; height:56px; border-radius:15px; flex:none;
+    background:linear-gradient(45deg,#f9ce34,#ee2a7b 50%,#6228d7);
+    display:flex; align-items:center; justify-content:center; color:#ffffff;
+  }
+  .ig-handle { font-family:'Oswald',sans-serif; font-size:1.05rem; letter-spacing:.05em; color:var(--white); font-weight:600; text-decoration:none; }
+  .ig-handle span { display:block; font-family:'Noto Sans JP',sans-serif; font-size:.78rem; font-weight:400; color:var(--muted); letter-spacing:.06em; margin-top:3px; }
+  .btn-ig {
+    display:inline-block; margin-left:auto;
+    font-family:'Oswald',sans-serif; font-size:.88rem; letter-spacing:.18em; font-weight:600;
+    color:#ffffff; background:linear-gradient(45deg,#f9ce34,#ee2a7b 50%,#6228d7);
+    padding:.75rem 2rem; border-radius:5px; text-decoration:none;
+    transition:transform .15s, opacity .2s;
+  }
+  .btn-ig:hover { transform:translateY(-2px); opacity:.9; }
+  .ig-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; border-radius:6px; overflow:hidden; }
+  .ig-tile { position:relative; display:block; }
+  .ig-tile img { width:100%; height:250px; object-fit:cover; display:block; transition:transform .3s, filter .3s; }
+  .ig-tile:hover img { transform:scale(1.03); filter:brightness(1.07); }
+  .ig-tile .ovl {
+    position:absolute; right:10px; bottom:10px; width:32px; height:32px; border-radius:9px;
+    background:rgba(255,255,255,0.92); color:#c13584;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 1px 6px rgba(0,0,0,0.18);
+  }
+  .ig-note { font-size:.82rem; color:rgba(14,42,71,0.5); margin-top:1.3rem; line-height:1.7; }
+
   /* ─── LIGHT THEME CARD SHADOW ─── */
   .fc, .venue-spec, .day-card, .cc, .team-card, .access-card {
     box-shadow: 0 2px 12px rgba(14,42,71,0.07);
   }
 
+  @media(max-width:1080px){
+    .nav-links { gap:.85rem; }
+    .nav-links a { font-size:.63rem; letter-spacing:.12em; white-space:nowrap; }
+    .nav-logo { font-size:1.05rem; }
+  }
   @media(max-width:768px){
     nav { padding:0 1rem; }
     .nav-links { display:none; }
@@ -370,6 +423,9 @@
     .access-grid { grid-template-columns:1fr; }
     .news-row { flex-wrap:wrap; gap:.55rem; }
     .news-date { min-width:auto; }
+    .ig-grid { grid-template-columns:1fr 1fr; }
+    .ig-tile img { height:170px; }
+    .btn-ig { margin-left:0; }
   }
 </style>
 </head>
@@ -378,16 +434,21 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#hero">HAKUBA SAMASAMA CUP<span>SUMMER 2026</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">ABOUT<span class="nav-sub">大会について</span></a></li>
-    <li><a href="#teams">TEAMS<span class="nav-sub">出場チーム</span></a></li>
-    <li><a href="#venue">VENUE<span class="nav-sub">会場</span></a></li>
-    <li><a href="#access">ACCESS<span class="nav-sub">アクセス</span></a></li>
-    <li><a href="#outline">OUTLINE<span class="nav-sub">大会概要</span></a></li>
-    <li><a href="#schedule">SCHEDULE<span class="nav-sub">日程</span></a></li>
-    <li><a href="#entry">ENTRY<span class="nav-sub">エントリー</span></a></li>
-    <li><a href="#contact">CONTACT<span class="nav-sub">お問い合わせ</span></a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">ABOUT<span class="nav-sub">大会について</span></a></li>
+      <li><a href="#teams">TEAMS<span class="nav-sub">出場チーム</span></a></li>
+      <li><a href="#venue">VENUE<span class="nav-sub">会場</span></a></li>
+      <li><a href="#access">ACCESS<span class="nav-sub">アクセス</span></a></li>
+      <li><a href="#outline">OUTLINE<span class="nav-sub">大会概要</span></a></li>
+      <li><a href="#schedule">SCHEDULE<span class="nav-sub">日程</span></a></li>
+      <li><a href="#entry">ENTRY<span class="nav-sub">エントリー</span></a></li>
+      <li><a href="#contact">CONTACT<span class="nav-sub">お問い合わせ</span></a></li>
+    </ul>
+    <a class="nav-iglink" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener" aria-label="公式Instagram">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"></circle></svg>
+    </a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -436,6 +497,11 @@
     <div class="label-tag">News</div>
     <div class="sec-title" style="font-size:clamp(1.8rem,4vw,2.6rem);">最新情報</div>
     <div class="gold-rule"></div>
+    <div class="news-row">
+      <span class="news-date">2026.06.11</span>
+      <span class="news-cat info">SNS</span>
+      <span class="news-text">公式Instagramを開設しました。<a href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">@hakuba_samasama_summer_cup</a> で大会情報を発信中です。</span>
+    </div>
     <div class="news-row">
       <span class="news-date">2026.06.01</span>
       <span class="news-cat">ENTRY</span>
@@ -845,6 +911,8 @@
     <div class="label-tag">Gallery</div>
     <div class="sec-title">フォトギャラリー</div>
     <div class="gold-rule"></div>
+
+    <h3 class="gal-sub">MATCH ／ 試合風景</h3>
     <div class="gallery-grid">
       <img src="img/gal-strike.jpg" alt="ボールを蹴る選手">
       <img src="img/gal-huddle.jpg" alt="円陣を組む選手たち">
@@ -853,6 +921,67 @@
       <img src="img/gal-match.jpg" alt="試合の様子">
       <img src="img/gal-walk.jpg" alt="ピッチに立つ選手">
     </div>
+
+    <h3 class="gal-sub" style="margin-top:2.6rem;">HAKUBA &amp; CAMP ／ 白馬・合宿の風景</h3>
+    <div class="gallery-grid">
+      <img src="img/hakuba-view.jpg" alt="白馬岩岳から望む白馬村">
+      <img src="img/hakuba-ground.jpg" alt="青空の下の天然芝グラウンド">
+      <img src="img/hakuba-lake.jpg" alt="白馬・青木湖の夏">
+      <img src="img/hakuba-ball.jpg" alt="天然芝の上のサッカーボール">
+      <img src="img/camp-meal.jpg" alt="宿での食事風景">
+      <img src="img/camp-bbq.jpg" alt="合宿のBBQ">
+    </div>
+    <p style="font-size:.78rem; color:rgba(14,42,71,0.45); margin-top:1rem;">
+      ※ 白馬・合宿の写真の一部は、会場・宿泊施設「切久保館」提供の写真を使用しています。
+    </p>
+  </div>
+</section>
+
+<!-- SNS / INSTAGRAM -->
+<section id="sns">
+  <div class="section-wrap">
+    <div class="label-tag">Official SNS</div>
+    <div class="sec-title">公式 INSTAGRAM</div>
+    <div class="gold-rule"></div>
+
+    <div class="ig-head">
+      <a class="ig-icon" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener" aria-label="公式Instagram">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"></circle></svg>
+      </a>
+      <a class="ig-handle" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener">
+        @hakuba_samasama_summer_cup
+        <span>大会の最新情報・出場チーム・白馬の風景を発信中</span>
+      </a>
+      <a class="btn-ig" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener">フォローする →</a>
+    </div>
+
+    <!--
+      ▼▼ Instagram投稿の反映箇所 ▼▼
+      実際の投稿を埋め込むには：
+      1. Instagramで表示したい投稿を開く
+      2. 右上「…」メニュー →「埋め込み」→「埋め込みコードをコピー」
+      3. 下の <div class="ig-grid"> ... </div> の中の <a class="ig-tile">（1タイル分）を
+         コピーした embed コード（<blockquote class="instagram-media">…）に差し替える
+      ※ 複数枚差し替え可。embedコード使用時はページ末尾に
+         <script async src="//www.instagram.com/embed.js"></script> を1行追加してください。
+    -->
+    <div class="ig-grid">
+      <a class="ig-tile" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener">
+        <img src="img/strip-celebrate.jpg" alt="Instagram投稿へ">
+        <span class="ovl"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"></circle></svg></span>
+      </a>
+      <a class="ig-tile" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener">
+        <img src="img/hakuba-view.jpg" alt="Instagram投稿へ">
+        <span class="ovl"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"></circle></svg></span>
+      </a>
+      <a class="ig-tile" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener">
+        <img src="img/gal-huddle.jpg" alt="Instagram投稿へ">
+        <span class="ovl"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"></circle></svg></span>
+      </a>
+    </div>
+    <p class="ig-note">
+      ※ 最新の投稿は公式Instagramでご覧いただけます。大会期間中は試合速報・結果もInstagramで発信予定です。
+    </p>
   </div>
 </section>
 
@@ -887,6 +1016,7 @@
         <h3>大会に関するお問い合わせ</h3>
         <a href="mailto:hakubacupsoccer@gmail.com" style="color:var(--muted);">hakubacupsoccer@gmail.com</a>
         <a href="tel:08096983017" style="margin-top:.4rem;">TEL：080-9698-3017</a>
+        <a href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener" style="margin-top:.4rem;">Instagram：@hakuba_samasama_summer_cup</a>
       </div>
       <div class="cc">
         <h3>会場・宿泊に関するお問い合わせ</h3>
@@ -905,6 +1035,11 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-logo">HAKUBA SAMASAMA SUMMER CUP 2026</span>
+  <a href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener"
+     style="display:inline-flex; align-items:center; gap:.45rem; color:rgba(193,53,132,0.85); text-decoration:none; font-size:.8rem; letter-spacing:.1em; margin-bottom:.8rem;">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"></circle></svg>
+    @hakuba_samasama_summer_cup
+  </a><br>
   © Hakuba SamaSama Summer Cup 実行委員会. All rights reserved.<br>
   長野県北安曇郡白馬村　白馬岩岳 切久保館専用グラウンド ／ スノーハープ
 </footer>
