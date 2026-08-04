@@ -452,6 +452,81 @@
     .ig-tile img { height:170px; }
     .btn-ig { margin-left:0; }
   }
+
+  /* ─── SPONSORS ─── */
+  #sponsors { border-top:1px solid var(--border); background:rgba(14,42,71,0.03); }
+  .sponsors-lead {
+    font-size:.98rem; line-height:1.85; color:var(--white);
+    max-width:720px; margin-bottom:3rem;
+  }
+  .sponsor-tier { margin-bottom:2.6rem; }
+  .sponsor-tier:last-of-type { margin-bottom:0; }
+  .tier-label {
+    font-family:'Oswald',sans-serif;
+    font-size:.82rem; letter-spacing:.22em;
+    color:var(--gold); text-transform:uppercase;
+    margin-bottom:1.2rem; padding-bottom:.55rem;
+    border-bottom:1px solid rgba(200,146,42,0.24);
+    display:flex; align-items:baseline; gap:.9rem;
+  }
+  .tier-label .tier-jp {
+    font-family:'Noto Sans JP',sans-serif;
+    color:var(--navy); font-weight:700;
+    letter-spacing:.1em; font-size:.86rem;
+  }
+  .sponsor-grid { display:grid; gap:1.4rem; }
+  /* 特別協賛：JVCケンウッドを上段に大きく、オーラを下段に配置 */
+  .tier-special { grid-template-columns:1fr; }
+  /* 技術協賛：単独中央配置 */
+  .tier-tech    { grid-template-columns:1fr; justify-items:center; }
+  .tier-tech .sponsor-card { max-width:360px; width:100%; }
+  .sponsor-card {
+    background:#ffffff; border:1px solid var(--border); border-radius:8px;
+    padding:2rem 1.4rem 1.4rem;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-decoration:none; color:var(--navy);
+    min-height:160px;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .sponsor-card:hover {
+    transform:translateY(-2px);
+    border-color:var(--gold-light);
+    box-shadow:0 6px 18px rgba(14,42,71,0.08);
+  }
+  .sponsor-card img {
+    max-width:82%; max-height:78px; width:auto; height:auto;
+    object-fit:contain; margin-bottom:1rem;
+  }
+  /* 序列に応じたロゴサイズ */
+  .sponsor-card.top-tier {
+    min-height:280px; padding:3rem 2rem 2rem;
+    border-width:2px; border-color:rgba(200,146,42,0.4);
+  }
+  .sponsor-card.top-tier img { max-height:180px; max-width:70%; margin-bottom:1.3rem; }
+  .sponsor-card.top-tier .sponsor-name { font-size:1rem; letter-spacing:.08em; }
+  .sponsor-card.sub-tier { min-height:150px; padding:1.6rem 1.4rem 1.2rem; }
+  .sponsor-card.sub-tier img { max-height:64px; max-width:55%; }
+  .tier-tech .sponsor-card img { max-height:56px; }
+  .sponsor-name {
+    font-size:.86rem; font-weight:700; letter-spacing:.05em;
+    color:var(--navy); text-align:center;
+  }
+  .sponsors-cta {
+    margin-top:2.6rem; padding-top:1.4rem;
+    border-top:1px solid var(--border);
+    font-size:.9rem; color:var(--muted);
+  }
+  .sponsors-cta a {
+    color:var(--gold-light); font-weight:700;
+    text-decoration:none;
+    border-bottom:1px solid rgba(200,146,42,0.4);
+  }
+  @media (max-width:720px) {
+    .sponsor-card.top-tier { min-height:220px; padding:2rem 1.4rem 1.4rem; }
+    .sponsor-card.top-tier img { max-height:130px; max-width:80%; }
+    .sponsor-card.sub-tier { min-height:130px; padding:1.5rem 1.2rem 1.2rem; }
+    .sponsor-card.sub-tier img { max-height:50px; max-width:70%; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -521,6 +596,7 @@
       <li><a href="#outline">OUTLINE<span class="nav-sub">大会概要</span></a></li>
       <li><a href="#schedule">SCHEDULE<span class="nav-sub">日程</span></a></li>
       <li><a href="#entry">ENTRY<span class="nav-sub">エントリー</span></a></li>
+      <li><a href="#sponsors">SPONSORS<span class="nav-sub">大会協賛</span></a></li>
       <li><a href="#contact">CONTACT<span class="nav-sub">お問い合わせ</span></a></li>
     </ul>
     <a class="nav-iglink" href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener" aria-label="公式Instagram">
@@ -1115,6 +1191,48 @@
   </div>
 </div>
 
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="section-wrap">
+    <div class="label-tag">Sponsors</div>
+    <h2 class="sec-title">大会協賛</h2>
+    <div class="gold-rule"></div>
+
+    <p class="sponsors-lead">
+      Hakuba SamaSama Summer Cup 2026 は、下記の企業様のご協賛・ご協力により実現いたします。<br>
+      子どもたちの真剣な夏を、共に支えてくださる皆様に心より御礼申し上げます。
+    </p>
+
+    <div class="sponsor-tier">
+      <h3 class="tier-label">Special Sponsors<span class="tier-jp">／ 特別協賛</span></h3>
+      <div class="sponsor-grid tier-special">
+        <a href="https://www.jvckenwood.com/jp/" target="_blank" rel="noopener" class="sponsor-card top-tier" aria-label="株式会社JVCケンウッドの公式サイトへ">
+          <img src="img/sponsors/kenwood.png" alt="株式会社JVCケンウッド ロゴ">
+          <div class="sponsor-name">株式会社JVCケンウッド</div>
+        </a>
+        <a href="https://www.aura-inv.co.jp/" target="_blank" rel="noopener" class="sponsor-card sub-tier" aria-label="株式会社オーラの公式サイトへ">
+          <img src="img/sponsors/aura.png" alt="株式会社オーラ ロゴ">
+          <div class="sponsor-name">株式会社オーラ</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sponsor-tier">
+      <h3 class="tier-label">Technical Partner<span class="tier-jp">／ 技術協賛</span></h3>
+      <div class="sponsor-grid tier-tech">
+        <a href="https://www.allclip.co/ja/" target="_blank" rel="noopener" class="sponsor-card" aria-label="Allclipの公式サイトへ">
+          <img src="img/sponsors/allclip.png" alt="Allclip ロゴ">
+          <div class="sponsor-name">Allclip</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sponsors-cta">
+      大会協賛のご相談は、<a href="#contact">お問い合わせ</a>までご連絡ください。
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-wrap">
@@ -1135,8 +1253,9 @@
       </div>
       <div class="cc">
         <h3>大会協賛に関するお問い合わせ</h3>
-        <a href="#">協賛ご相談フォームはこちら</a>
-        <p style="margin-top:.7rem; font-size:.78rem; color:rgba(14,42,71,0.35);">（後日更新予定）</p>
+        <a href="mailto:hakubacupsoccer@gmail.com" style="color:var(--muted);">hakubacupsoccer@gmail.com</a>
+        <a href="tel:08096983017" style="margin-top:.4rem;">TEL：080-9698-3017</a>
+        <a href="#sponsors" style="margin-top:.4rem;">▶ 協賛企業一覧はこちら</a>
       </div>
     </div>
   </div>
