@@ -512,7 +512,7 @@
   .tier-special { grid-template-columns:1fr; }
   /* 技術協賛：単独中央配置 */
   .tier-tech    { grid-template-columns:1fr; justify-items:center; }
-  .tier-tech .sponsor-card { max-width:360px; width:100%; }
+  .tier-tech .sponsor-card { max-width:520px; width:100%; min-height:auto; padding:2.2rem 1.8rem 1.8rem; }
   .sponsor-card {
     background:#ffffff; border:1px solid var(--border); border-radius:8px;
     padding:2rem 1.4rem 1.4rem;
@@ -540,6 +540,20 @@
   .sponsor-card.sub-tier { min-height:150px; padding:1.6rem 1.4rem 1.2rem; }
   .sponsor-card.sub-tier img { max-height:64px; max-width:55%; }
   .tier-tech .sponsor-card img { max-height:56px; }
+  /* 技術協賛カード内の説明文 */
+  .sponsor-desc {
+    margin-top:.7rem; font-size:.78rem; line-height:1.7;
+    color:rgba(14,42,71,0.72); text-align:center;
+    letter-spacing:.03em;
+    max-width:320px;
+  }
+  .sponsor-desc .em { color:var(--gold-light); font-weight:700; }
+  .sponsor-tag {
+    display:inline-block; margin-top:.55rem;
+    font-family:'Oswald',sans-serif; font-size:.62rem; letter-spacing:.2em;
+    color:var(--gold); text-transform:uppercase; font-weight:700;
+    padding:.18rem .55rem; background:rgba(200,146,42,0.12); border-radius:2px;
+  }
   .sponsor-name {
     font-size:.86rem; font-weight:700; letter-spacing:.05em;
     color:var(--navy); text-align:center;
@@ -700,6 +714,11 @@
     <div class="label-tag">News</div>
     <h2 class="sec-title" style="font-size:clamp(1.8rem,4vw,2.6rem);">最新情報</h2>
     <div class="gold-rule"></div>
+    <div class="news-row">
+      <span class="news-date">2026.08.05</span>
+      <span class="news-cat">SPONSORS</span>
+      <span class="news-text">技術協賛の<strong style="color:var(--gold-light);">Allclip</strong>様により、<strong style="color:var(--gold-light);">大会中の全試合をAIスポーツカメラで撮影</strong>いたします。1台のカメラがAIスポーツカメラに。全てのチームで、試合撮影と振り返りを手軽に自動化できます。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページをご覧ください。</span>
+    </div>
     <div class="news-row">
       <span class="news-date">2026.08.05</span>
       <span class="news-cat">SPONSORS</span>
@@ -1277,6 +1296,8 @@
         <a href="https://www.allclip.co/ja/" target="_blank" rel="noopener" class="sponsor-card" aria-label="Allclipの公式サイトへ">
           <img src="img/sponsors/allclip.png" alt="Allclip ロゴ">
           <div class="sponsor-name">Allclip</div>
+          <div class="sponsor-tag">大会中の全試合を撮影</div>
+          <p class="sponsor-desc">1台のカメラが、<span class="em">AIスポーツカメラ</span>に。全てのチームで、試合撮影と振り返りを手軽に自動化。</p>
         </a>
       </div>
     </div>
