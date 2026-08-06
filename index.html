@@ -168,10 +168,17 @@
   }
   .sidebar-logo:hover { opacity: .78; transform: translateY(-1px); box-shadow: 0 3px 10px rgba(14,42,71,0.08); }
   .sidebar-logo img { max-width: 90%; max-height: 44px; width: auto; object-fit: contain; }
-  /* 特別協賛：JVCを大きく、AURAを次に */
-  .sidebar-tier.special .sidebar-logo.top { padding: 12px 6px; border: 2px solid rgba(200,146,42,0.35); }
-  .sidebar-tier.special .sidebar-logo.top img { max-height: 72px; max-width: 92%; }
-  .sidebar-tier.special .sidebar-logo.sub img { max-height: 34px; max-width: 68%; }
+  /* Premierトップパートナー：最上位・最大 */
+  .sidebar-tier.premier .sidebar-tier-label { color: var(--gold-light); border-bottom-color: var(--gold-light); }
+  .sidebar-tier.premier .sidebar-logo {
+    padding: 16px 8px;
+    border: 2px solid var(--gold-light);
+    background: linear-gradient(180deg, #fff 0%, rgba(200,146,42,0.05) 100%);
+  }
+  .sidebar-tier.premier .sidebar-logo img { max-height: 88px; max-width: 94%; }
+  /* 特別協賛 */
+  .sidebar-tier.special .sidebar-logo { padding: 10px 6px; }
+  .sidebar-tier.special .sidebar-logo img { max-height: 44px; max-width: 78%; }
   .sidebar-tier.sponsor .sidebar-logo img { max-height: 40px; max-width: 82%; }
   .sidebar-tier.tech .sidebar-logo img { max-height: 32px; max-width: 78%; }
 
@@ -491,7 +498,7 @@
 
   @media(max-width:1200px){
     :root { --sidebar-w: 140px; }
-    .sidebar-tier.special .sidebar-logo.top img { max-height: 58px; }
+    .sidebar-tier.premier .sidebar-logo img { max-height: 70px; }
     .sidebar-logo img { max-height: 34px; }
   }
   @media(max-width:1080px){
@@ -547,8 +554,11 @@
     letter-spacing:.1em; font-size:.86rem;
   }
   .sponsor-grid { display:grid; gap:1.4rem; }
-  /* 特別協賛：JVCケンウッドを上段に大きく、オーラを下段に配置 */
-  .tier-special { grid-template-columns:1fr; }
+  /* トップパートナー：最上位・最大枠 */
+  .tier-premier { grid-template-columns:1fr; }
+  /* 特別協賛 */
+  .tier-special { grid-template-columns:1fr; justify-items:center; }
+  .tier-special .sponsor-card { max-width:600px; width:100%; }
   /* 協賛：単独中央配置 */
   .tier-sponsor { grid-template-columns:1fr; justify-items:center; }
   .tier-sponsor .sponsor-card { max-width:520px; width:100%; }
@@ -574,14 +584,25 @@
     object-fit:contain; margin-bottom:1rem;
   }
   /* 序列に応じたロゴサイズ */
-  .sponsor-card.top-tier {
-    min-height:280px; padding:3rem 2rem 2rem;
-    border-width:2px; border-color:rgba(200,146,42,0.4);
+  /* Premier トップパートナー：最上位・最大 */
+  .sponsor-card.premier-tier {
+    min-height:340px; padding:3.6rem 2rem 2.2rem;
+    border:3px solid var(--gold-light);
+    background:linear-gradient(180deg, #fff 0%, rgba(200,146,42,0.05) 100%);
+    box-shadow:0 8px 24px rgba(14,42,71,0.1);
+    position:relative;
   }
-  .sponsor-card.top-tier img { max-height:180px; max-width:70%; margin-bottom:1.3rem; }
-  .sponsor-card.top-tier .sponsor-name { font-size:1rem; letter-spacing:.08em; }
-  .sponsor-card.sub-tier { min-height:150px; padding:1.6rem 1.4rem 1.2rem; }
-  .sponsor-card.sub-tier img { max-height:64px; max-width:55%; }
+  .sponsor-card.premier-tier::before {
+    content:'PREMIER SPONSOR'; position:absolute; top:-11px; left:50%; transform:translateX(-50%);
+    font-family:'Oswald',sans-serif; font-size:.66rem; letter-spacing:.28em;
+    color:#fff; background:var(--gold-light);
+    padding:.32rem 1rem; border-radius:2px; font-weight:700; white-space:nowrap;
+  }
+  .sponsor-card.premier-tier img { max-height:210px; max-width:74%; margin-bottom:1.4rem; }
+  .sponsor-card.premier-tier .sponsor-name { font-size:1.05rem; letter-spacing:.1em; }
+  /* 特別協賛カード（AURAなど）*/
+  .sponsor-card.special-tier { min-height:190px; padding:2rem 1.6rem 1.4rem; }
+  .sponsor-card.special-tier img { max-height:80px; max-width:60%; }
   .tier-tech .sponsor-card img { max-height:56px; }
   /* 技術協賛カード内の説明文 */
   .sponsor-desc {
@@ -612,10 +633,10 @@
     border-bottom:1px solid rgba(200,146,42,0.4);
   }
   @media (max-width:720px) {
-    .sponsor-card.top-tier { min-height:220px; padding:2rem 1.4rem 1.4rem; }
-    .sponsor-card.top-tier img { max-height:130px; max-width:80%; }
-    .sponsor-card.sub-tier { min-height:130px; padding:1.5rem 1.2rem 1.2rem; }
-    .sponsor-card.sub-tier img { max-height:50px; max-width:70%; }
+    .sponsor-card.premier-tier { min-height:260px; padding:2.6rem 1.4rem 1.6rem; }
+    .sponsor-card.premier-tier img { max-height:150px; max-width:80%; }
+    .sponsor-card.special-tier { min-height:160px; padding:1.5rem 1.2rem 1.2rem; }
+    .sponsor-card.special-tier img { max-height:60px; max-width:70%; }
   }
 </style>
 <script type="application/ld+json">
@@ -702,12 +723,16 @@
     <div class="jp">大会協賛</div>
   </div>
 
-  <div class="sidebar-tier special">
-    <div class="sidebar-tier-label">Special Sponsors<span class="lbl-jp">特別協賛</span></div>
-    <a href="https://www.jvckenwood.com/jp/" target="_blank" rel="noopener" class="sidebar-logo top" aria-label="株式会社JVCケンウッド 公式サイト">
+  <div class="sidebar-tier premier">
+    <div class="sidebar-tier-label">Premier Sponsor<span class="lbl-jp">トップパートナー</span></div>
+    <a href="https://www.jvckenwood.com/jp/" target="_blank" rel="noopener" class="sidebar-logo" aria-label="株式会社JVCケンウッド 公式サイト">
       <img src="img/sponsors/kenwood.png" alt="JVCケンウッド">
     </a>
-    <a href="https://www.aura-inv.co.jp/" target="_blank" rel="noopener" class="sidebar-logo sub" aria-label="株式会社オーラ 公式サイト">
+  </div>
+
+  <div class="sidebar-tier special">
+    <div class="sidebar-tier-label">Special Sponsors<span class="lbl-jp">特別協賛</span></div>
+    <a href="https://www.aura-inv.co.jp/" target="_blank" rel="noopener" class="sidebar-logo" aria-label="株式会社オーラ 公式サイト">
       <img src="img/sponsors/aura.png" alt="AURA">
     </a>
   </div>
@@ -782,7 +807,7 @@
     <div class="news-row">
       <span class="news-date">2026.08.05</span>
       <span class="news-cat">SPONSORS</span>
-      <span class="news-text">大会の趣旨にご賛同いただき、<strong style="color:var(--gold-light);">株式会社JVCケンウッド</strong>・<strong style="color:var(--gold-light);">株式会社オーラ</strong>より<strong style="color:var(--gold-light);">特別協賛</strong>、<strong style="color:var(--gold-light);">Allclip</strong>より<strong style="color:var(--gold-light);">技術協賛</strong>を賜りました。心より御礼申し上げます。 引き続き、大会をお支えいただける協賛企業様を募集しております。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページ、または<a href="#contact" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">お問い合わせ</a>までご連絡ください。</span>
+      <span class="news-text">大会の趣旨にご賛同いただき、<strong style="color:var(--gold-light);">株式会社JVCケンウッド</strong>より<strong style="color:var(--gold-light);">トップパートナー</strong>、<strong style="color:var(--gold-light);">株式会社オーラ</strong>より<strong style="color:var(--gold-light);">特別協賛</strong>、<strong style="color:var(--gold-light);">株式会社FREE PEACE</strong>より<strong style="color:var(--gold-light);">協賛</strong>、<strong style="color:var(--gold-light);">Allclip</strong>より<strong style="color:var(--gold-light);">技術協賛</strong>を賜りました。心より御礼申し上げます。 引き続き、大会をお支えいただける協賛企業様を募集しております。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページ、または<a href="#contact" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">お問い合わせ</a>までご連絡ください。</span>
     </div>
     <div class="news-row">
       <span class="news-date">2026.07.22</span>
@@ -1337,13 +1362,19 @@
     </p>
 
     <div class="sponsor-tier">
-      <h3 class="tier-label">Special Sponsors<span class="tier-jp">／ 特別協賛</span></h3>
-      <div class="sponsor-grid tier-special">
-        <a href="https://www.jvckenwood.com/jp/" target="_blank" rel="noopener" class="sponsor-card top-tier" aria-label="株式会社JVCケンウッドの公式サイトへ">
+      <h3 class="tier-label">Premier Sponsor<span class="tier-jp">／ トップパートナー</span></h3>
+      <div class="sponsor-grid tier-premier">
+        <a href="https://www.jvckenwood.com/jp/" target="_blank" rel="noopener" class="sponsor-card premier-tier" aria-label="株式会社JVCケンウッドの公式サイトへ">
           <img src="img/sponsors/kenwood.png" alt="株式会社JVCケンウッド ロゴ">
           <div class="sponsor-name">株式会社JVCケンウッド</div>
         </a>
-        <a href="https://www.aura-inv.co.jp/" target="_blank" rel="noopener" class="sponsor-card sub-tier" aria-label="株式会社オーラの公式サイトへ">
+      </div>
+    </div>
+
+    <div class="sponsor-tier">
+      <h3 class="tier-label">Special Sponsors<span class="tier-jp">／ 特別協賛</span></h3>
+      <div class="sponsor-grid tier-special">
+        <a href="https://www.aura-inv.co.jp/" target="_blank" rel="noopener" class="sponsor-card special-tier" aria-label="株式会社オーラの公式サイトへ">
           <img src="img/sponsors/aura.png" alt="株式会社オーラ ロゴ">
           <div class="sponsor-name">株式会社オーラ</div>
         </a>
