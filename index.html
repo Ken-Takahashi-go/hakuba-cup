@@ -168,19 +168,21 @@
   }
   .sidebar-logo:hover { opacity: .78; transform: translateY(-1px); box-shadow: 0 3px 10px rgba(14,42,71,0.08); }
   .sidebar-logo img { max-width: 90%; max-height: 44px; width: auto; object-fit: contain; }
-  /* Premierトップパートナー：最上位・最大 */
+  /* Premierトップパートナー：最上位・最大（余白減・一回り大） */
   .sidebar-tier.premier .sidebar-tier-label { color: var(--gold-light); border-bottom-color: var(--gold-light); }
   .sidebar-tier.premier .sidebar-logo {
-    padding: 16px 8px;
+    padding: 10px 4px;
     border: 2px solid var(--gold-light);
     background: linear-gradient(180deg, #fff 0%, rgba(200,146,42,0.05) 100%);
   }
-  .sidebar-tier.premier .sidebar-logo img { max-height: 88px; max-width: 94%; }
-  /* 特別協賛 */
-  .sidebar-tier.special .sidebar-logo { padding: 10px 6px; }
-  .sidebar-tier.special .sidebar-logo img { max-height: 44px; max-width: 78%; }
+  .sidebar-tier.premier .sidebar-logo img { max-height: 108px; max-width: 100%; }
+  /* 特別協賛（余白減・一回り大）*/
+  .sidebar-tier.special .sidebar-logo { padding: 6px 4px; }
+  .sidebar-tier.special .sidebar-logo img { max-height: 60px; max-width: 92%; }
+  /* 協賛（現状キープ）*/
   .sidebar-tier.sponsor .sidebar-logo img { max-height: 40px; max-width: 82%; }
-  .sidebar-tier.tech .sidebar-logo img { max-height: 32px; max-width: 78%; }
+  /* 技術協賛（一回り小）*/
+  .sidebar-tier.tech .sidebar-logo img { max-height: 24px; max-width: 70%; }
 
   .hero-eyebrow {
     font-family:'Oswald',sans-serif; font-size:.82rem;
@@ -498,8 +500,10 @@
 
   @media(max-width:1200px){
     :root { --sidebar-w: 140px; }
-    .sidebar-tier.premier .sidebar-logo img { max-height: 70px; }
-    .sidebar-logo img { max-height: 34px; }
+    .sidebar-tier.premier .sidebar-logo img { max-height: 86px; }
+    .sidebar-tier.special .sidebar-logo img { max-height: 48px; }
+    .sidebar-tier.sponsor .sidebar-logo img { max-height: 34px; }
+    .sidebar-tier.tech .sidebar-logo img { max-height: 20px; }
   }
   @media(max-width:1080px){
     .nav-links { gap:.85rem; }
