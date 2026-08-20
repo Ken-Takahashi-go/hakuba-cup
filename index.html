@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>白馬サマサマサマーカップ2026｜U-10少年サッカー大会(8人制)｜長野県白馬村</title>
-<meta name="description" content="2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国16チームが競う合宿型大会。エントリー受付中（締切6月30日）。">
+<meta name="description" content="2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国10チームが競う合宿型大会。出場チーム決定、開催に向けて準備中。">
 <meta name="keywords" content="白馬 サッカー大会,少年サッカー 大会,U-10 サッカー大会,8人制サッカー,サッカー合宿 白馬,長野県 サッカー大会,白馬村,2026">
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#0e2a47">
@@ -19,14 +19,14 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://hakuba-cup-soccer.com/">
 <meta property="og:title" content="白馬サマサマ サマーカップ 2026｜U-10少年サッカー大会">
-<meta property="og:description" content="2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国16チームが競う合宿型大会。エントリー受付中（締切6月30日）。">
+<meta property="og:description" content="2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国10チームが競う合宿型大会。出場チーム決定、開催に向けて準備中。">
 <meta property="og:image" content="https://hakuba-cup-soccer.com/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="白馬サマサマ サマーカップ 2026｜U-10少年サッカー大会">
-<meta name="twitter:description" content="2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国16チームが競う合宿型大会。エントリー受付中（締切6月30日）。">
+<meta name="twitter:description" content="2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国10チームが競う合宿型大会。出場チーム決定、開催に向けて準備中。">
 <meta name="twitter:image" content="https://hakuba-cup-soccer.com/img/og-image.jpg">
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
@@ -418,16 +418,152 @@
   .team-card {
     background:#ffffff; border:1px solid var(--border);
     border-left:3px solid var(--gold); border-radius:5px;
-    padding:1.1rem 1.35rem; transition:background .2s, transform .15s;
+    padding:1.1rem 1.35rem; transition:background .2s, transform .15s, box-shadow .15s;
   }
-  .team-card:hover { background:rgba(255,255,255,0.07); transform:translateY(-2px); }
+  .team-card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(14,42,71,0.08); }
   .team-pref { font-family:'Oswald',sans-serif; font-size:.62rem; letter-spacing:.18em; color:var(--gold); margin-bottom:.4rem; }
-  .team-name { font-size:1.02rem; font-weight:700; color:var(--snow); line-height:1.35; }
+  .team-name { font-size:1.02rem; font-weight:700; color:var(--navy); line-height:1.35; }
+  .team-desc { font-size:.78rem; color:rgba(14,42,71,0.65); margin-top:.5rem; line-height:1.55; }
   .teams-note { font-size:.82rem; color:rgba(14,42,71,0.5); margin-top:1.8rem; line-height:1.75; }
+  /* カテゴリ別グループ */
+  .team-cat-group { margin-bottom:2.2rem; }
+  .team-cat-group:last-of-type { margin-bottom:0; }
+  .team-cat-label {
+    font-family:'Oswald',sans-serif; font-size:.72rem; letter-spacing:.24em;
+    color:var(--gold); text-transform:uppercase; font-weight:700;
+    padding-bottom:.55rem; margin-bottom:1rem;
+    border-bottom:1px solid rgba(200,146,42,0.24);
+    display:flex; align-items:baseline; gap:.85rem; flex-wrap:wrap;
+  }
+  .team-cat-label .cat-jp {
+    font-family:'Noto Sans JP',sans-serif; font-weight:700;
+    color:var(--navy); font-size:.84rem; letter-spacing:.08em;
+  }
+  .team-cat-label .cat-count {
+    font-size:.68rem; color:rgba(14,42,71,0.45); letter-spacing:.14em; font-weight:400;
+  }
+  /* カテゴリ別 border-left カラー */
+  .team-card.cat-host    { border-left-color:var(--gold-light); }
+  .team-card.cat-jleague { border-left-color:#c8102e; }
+  .team-card.cat-local   { border-left-color:var(--green-mid); }
+
+  /* 予選ブロック */
+  #blocks { border-top:1px solid var(--border); background:rgba(14,42,71,0.035); }
+  .blocks-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2rem; }
+  .block-card { background:#fff; border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+  .block-head {
+    padding:.85rem 1.2rem; color:#fff;
+    background:linear-gradient(135deg, var(--green-mid), var(--green-light));
+    font-family:'Oswald',sans-serif; font-size:1.05rem; letter-spacing:.18em; font-weight:700;
+  }
+  .block-list { list-style:none; padding:0; margin:0; }
+  .block-list li {
+    display:flex; align-items:center; gap:.9rem;
+    padding:.75rem 1.2rem; font-size:.92rem;
+    border-bottom:1px solid var(--border); color:var(--navy);
+  }
+  .block-list li:last-child { border-bottom:none; }
+  .block-list .slot {
+    font-family:'Oswald',sans-serif; font-size:.74rem;
+    letter-spacing:.14em; color:var(--gold); min-width:22px;
+  }
+  .blocks-note {
+    font-size:.82rem; color:rgba(14,42,71,0.6); margin-top:1.4rem; line-height:1.75;
+  }
+  /* Matchday Live カード */
+  .matchday-card {
+    margin-top:2rem;
+    background:linear-gradient(135deg, var(--navy), var(--navy)) padding-box,
+               linear-gradient(90deg, var(--gold-light), var(--green-light)) border-box;
+    border:2px solid transparent; border-radius:8px;
+    padding:1.4rem 1.6rem;
+    display:flex; align-items:center; gap:1.2rem;
+    flex-wrap:wrap; color:#fff;
+  }
+  .matchday-card .md-icon {
+    width:44px; height:44px; border-radius:8px;
+    background:rgba(200,146,42,0.2);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Oswald',sans-serif; font-size:1.1rem; letter-spacing:.05em;
+    color:var(--gold-light); font-weight:700;
+    flex-shrink:0;
+  }
+  .matchday-card .md-body { flex:1; min-width:240px; }
+  .matchday-card .md-ttl {
+    font-family:'Oswald',sans-serif; font-size:.82rem; letter-spacing:.22em;
+    color:var(--gold-light); text-transform:uppercase; margin-bottom:.15rem;
+  }
+  .matchday-card .md-jp {
+    font-size:1.02rem; font-weight:700; color:#fff; margin-bottom:.3rem;
+  }
+  .matchday-card .md-desc { font-size:.82rem; color:rgba(255,255,255,0.75); line-height:1.55; }
+  .matchday-card .md-btn {
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.7rem 1.3rem; background:var(--gold-light); color:var(--navy);
+    font-size:.9rem; font-weight:700; letter-spacing:.05em;
+    border-radius:5px; text-decoration:none; white-space:nowrap;
+    transition:background .15s, transform .15s;
+  }
+  .matchday-card .md-btn:hover { background:#e8b84b; transform:translateY(-1px); }
+  @media (max-width:640px) {
+    .blocks-grid { grid-template-columns:1fr; }
+    .matchday-card { flex-direction:column; align-items:flex-start; }
+    .matchday-card .md-btn { width:100%; justify-content:center; }
+  }
 
   /* ─── ACCESS ─── */
   #access { border-top:1px solid var(--border); }
   .access-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.6rem; }
+  /* 駐車警告カード */
+  .access-warning {
+    margin-top:1.6rem;
+    background:rgba(220,40,40,0.06);
+    border:1px solid rgba(220,40,40,0.35);
+    border-left:4px solid #c8102e;
+    border-radius:5px; padding:1rem 1.3rem;
+    font-size:.86rem; color:var(--navy); line-height:1.7;
+  }
+  .access-warning .w-ttl {
+    display:flex; align-items:center; gap:.5rem;
+    font-family:'Oswald',sans-serif; font-size:.82rem; letter-spacing:.18em;
+    color:#c8102e; text-transform:uppercase; font-weight:700;
+    margin-bottom:.55rem;
+  }
+  .access-warning .w-ttl::before { content:'⚠'; font-size:1.1rem; }
+  .access-warning ul { list-style:none; padding:0; margin:0; }
+  .access-warning li { padding:.25rem 0 .25rem 1.1rem; position:relative; }
+  .access-warning li::before {
+    content:'•'; color:#c8102e; position:absolute; left:0;
+  }
+  .access-warning b { color:#c8102e; }
+  /* 周辺スポット */
+  .nearby-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2rem;
+  }
+  .nearby-card {
+    background:#fff; border:1px solid var(--border); border-top:3px solid var(--green-mid);
+    border-radius:6px; padding:1.3rem 1.4rem;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .nearby-card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(14,42,71,0.08); }
+  .nearby-card .n-day {
+    font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.2em;
+    color:var(--green-light); text-transform:uppercase; font-weight:700; margin-bottom:.35rem;
+  }
+  .nearby-card .n-name {
+    font-size:1.02rem; font-weight:700; color:var(--navy); margin-bottom:.35rem;
+    line-height:1.4;
+  }
+  .nearby-card .n-desc { font-size:.82rem; color:rgba(14,42,71,0.7); line-height:1.65; }
+  .nearby-card .n-link {
+    display:inline-block; margin-top:.8rem;
+    font-family:'Oswald',sans-serif; font-size:.68rem; letter-spacing:.16em;
+    color:var(--green-mid); text-decoration:none;
+    border-bottom:1px solid rgba(46,122,78,0.4);
+  }
+  @media (max-width:640px) {
+    .nearby-grid { grid-template-columns:1fr; }
+  }
   .access-card {
     background:#ffffff; border:1px solid var(--border);
     border-top:3px solid var(--green-mid); border-radius:5px; padding:1.5rem 1.6rem;
@@ -557,6 +693,10 @@
     color:var(--navy); font-weight:700;
     letter-spacing:.1em; font-size:.86rem;
   }
+  .tier-role {
+    font-size:.86rem; color:var(--muted); line-height:1.65;
+    margin:-.4rem 0 1.3rem; padding-left:.1rem;
+  }
   .sponsor-grid { display:grid; gap:1.4rem; }
   /* トップパートナー：最上位・最大枠 */
   .tier-premier { grid-template-columns:1fr; }
@@ -639,50 +779,69 @@
   "@type": "SportsEvent",
   "name": "Hakuba SamaSama Summer Cup 2026（白馬サマサマ サマーカップ 2026）",
   "sport": "サッカー",
-  "description": "2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国16チームが競う合宿型大会。エントリー受付中（締切6月30日）。",
+  "description": "2026年8月28日〜30日、長野県白馬村でU-10少年サッカー大会「Hakuba SamaSama Summer Cup 2026」を開催。標高800mの天然芝グラウンドで全国10チームが競う合宿型大会。",
   "startDate": "2026-08-28",
   "endDate": "2026-08-30",
   "eventStatus": "https://schema.org/EventScheduled",
   "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
   "image": "https://hakuba-cup-soccer.com/img/og-image.jpg",
   "url": "https://hakuba-cup-soccer.com/",
-  "location": {
-    "@type": "Place",
-    "name": "白馬岩岳 切久保館 専用天然芝グラウンド",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "北城12276",
-      "addressLocality": "白馬村",
-      "addressRegion": "長野県",
-      "postalCode": "399-9301",
-      "addressCountry": "JP"
+  "location": [
+    {
+      "@type": "Place",
+      "name": "白馬岩岳 切久保館 専用天然芝グラウンド",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "北城12276",
+        "addressLocality": "白馬村",
+        "addressRegion": "長野県",
+        "postalCode": "399-9301",
+        "addressCountry": "JP"
+      }
+    },
+    {
+      "@type": "Place",
+      "name": "スノーハープ（白馬クロスカントリー競技場）",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "大字神城3003",
+        "addressLocality": "白馬村",
+        "addressRegion": "長野県",
+        "postalCode": "399-9211",
+        "addressCountry": "JP"
+      }
     }
-  },
+  ],
   "organizer": {
     "@type": "Organization",
     "name": "Hakuba SamaSama Summer Cup 実行委員会",
     "url": "https://hakuba-cup-soccer.com/",
-    "email": "hakubacupsoccer@gmail.com"
+    "email": "hakubacupsoccer@gmail.com",
+    "sameAs": [
+      "https://www.instagram.com/hakuba_samasama_summer_cup/"
+    ]
   },
   "performer": [
-    { "@type": "SportsTeam", "name": "自由が丘SC" },
+    { "@type": "SportsTeam", "name": "自由が丘SC A" },
+    { "@type": "SportsTeam", "name": "自由が丘SC B" },
     { "@type": "SportsTeam", "name": "METAサッカースクール選抜" },
     { "@type": "SportsTeam", "name": "鹿島アントラーズ スクール選抜" },
-    { "@type": "SportsTeam", "name": "長野アンビシャス" },
     { "@type": "SportsTeam", "name": "カターレ富山 スクール選抜" },
+    { "@type": "SportsTeam", "name": "長野アンビシャス A" },
+    { "@type": "SportsTeam", "name": "長野アンビシャス B" },
     { "@type": "SportsTeam", "name": "高崎KⅡビクトリーズ" },
     { "@type": "SportsTeam", "name": "CDY.ESCOLA" },
     { "@type": "SportsTeam", "name": "JFC青桐" }
   ],
+  "maximumAttendeeCapacity": 10,
   "offers": {
     "@type": "Offer",
     "name": "大会参加費（1チーム）",
     "price": "20000",
     "priceCurrency": "JPY",
-    "url": "https://forms.gle/P5Rz1Xx3mSYLcUs27",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2026-05-01",
-    "validThrough": "2026-06-30"
+    "url": "https://hakuba-cup-soccer.com/",
+    "availability": "https://schema.org/SoldOut",
+    "validFrom": "2026-05-01"
   }
 }
 </script>
@@ -775,7 +934,7 @@
       </div>
     </div>
     <br>
-    <a href="https://forms.gle/P5Rz1Xx3mSYLcUs27" target="_blank" rel="noopener" class="btn-primary">エントリーはこちら →</a>
+    <a href="#teams" class="btn-primary">出場10チームを見る →</a>
     <a href="#outline" class="btn-outline">大会概要を見る</a>
   </div>
 </div>
@@ -796,12 +955,12 @@
     <div class="news-row">
       <span class="news-date">2026.08.05</span>
       <span class="news-cat">SPONSORS</span>
-      <span class="news-text">技術協賛の<strong style="color:var(--gold-light);">Allclip</strong>様により、<strong style="color:var(--gold-light);">大会中の全試合をAIスポーツカメラで撮影</strong>いたします。1台のカメラがAIスポーツカメラに。全てのチームで、試合撮影と振り返りを手軽に自動化できます。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページをご覧ください。</span>
+      <span class="news-text">技術協賛の<strong style="color:var(--gold-light);">株式会社AllClip</strong>様により、<strong style="color:var(--gold-light);">大会中の全試合をAIスポーツカメラで撮影</strong>いたします。1台のカメラがAIスポーツカメラに。全てのチームで、試合撮影と振り返りを手軽に自動化できます。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページをご覧ください。</span>
     </div>
     <div class="news-row">
       <span class="news-date">2026.08.05</span>
       <span class="news-cat">SPONSORS</span>
-      <span class="news-text">大会の趣旨にご賛同いただき、<strong style="color:var(--gold-light);">株式会社JVCケンウッド</strong>より<strong style="color:var(--gold-light);">トップパートナー</strong>、<strong style="color:var(--gold-light);">株式会社オーラ</strong>より<strong style="color:var(--gold-light);">特別協賛</strong>、<strong style="color:var(--gold-light);">株式会社FREE PEACE</strong>より<strong style="color:var(--gold-light);">協賛</strong>、<strong style="color:var(--gold-light);">Allclip</strong>より<strong style="color:var(--gold-light);">技術協賛</strong>を賜りました。心より御礼申し上げます。 引き続き、大会をお支えいただける協賛企業様を募集しております。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページ、または<a href="#contact" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">お問い合わせ</a>までご連絡ください。</span>
+      <span class="news-text">大会の趣旨にご賛同いただき、<strong style="color:var(--gold-light);">株式会社JVCケンウッド</strong>より<strong style="color:var(--gold-light);">トップパートナー</strong>、<strong style="color:var(--gold-light);">株式会社オーラ</strong>より<strong style="color:var(--gold-light);">特別協賛</strong>、<strong style="color:var(--gold-light);">株式会社FREE PEACE</strong>より<strong style="color:var(--gold-light);">協賛</strong>、<strong style="color:var(--gold-light);">株式会社AllClip</strong>より<strong style="color:var(--gold-light);">技術協賛</strong>を賜りました。心より御礼申し上げます。 引き続き、大会をお支えいただける協賛企業様を募集しております。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページ、または<a href="#contact" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">お問い合わせ</a>までご連絡ください。</span>
     </div>
     <div class="news-row">
       <span class="news-date">2026.07.22</span>
@@ -826,7 +985,7 @@
     <div class="news-row">
       <span class="news-date">2026.06.01</span>
       <span class="news-cat">ENTRY</span>
-      <span class="news-text">参加チームのエントリー受付中です。締切は <strong style="color:var(--gold-light);">6月30日（日）</strong>、定員16チームに達し次第終了します。</span>
+      <span class="news-text">参加チームのエントリー受付を締切いたしました。全<strong style="color:var(--gold-light);">10チーム</strong>の出場が確定しています。</span>
     </div>
     <div class="news-row">
       <span class="news-date">2026.05.20</span>
@@ -904,43 +1063,130 @@
     <div class="teams-lead">
       全国の<span class="em">強豪クラブ</span>が、白馬に集う。
     </div>
-    <div class="teams-grid">
-      <div class="team-card">
-        <div class="team-pref">TOKYO ／ 東京都</div>
-        <div class="team-name">自由が丘SC（A・B）</div>
-      </div>
-      <div class="team-card">
-        <div class="team-pref">TOKYO ／ 東京都</div>
-        <div class="team-name">METAサッカースクール選抜</div>
-      </div>
-      <div class="team-card">
-        <div class="team-pref">IBARAKI ／ 茨城県</div>
-        <div class="team-name">鹿島アントラーズ スクール選抜</div>
-      </div>
-      <div class="team-card">
-        <div class="team-pref">NAGANO ／ 長野県</div>
-        <div class="team-name">長野アンビシャス（A・B）</div>
-      </div>
-      <div class="team-card">
-        <div class="team-pref">TOYAMA ／ 富山県</div>
-        <div class="team-name">カターレ富山 スクール選抜</div>
-      </div>
-      <div class="team-card">
-        <div class="team-pref">GUNMA ／ 群馬県</div>
-        <div class="team-name">高崎KⅡビクトリーズ</div>
-      </div>
-      <div class="team-card">
-        <div class="team-pref">YAMANASHI ／ 山梨県</div>
-        <div class="team-name">CDY.ESCOLA</div>
-      </div>
-      <div class="team-card">
-        <div class="team-pref">YAMANASHI ／ 山梨県</div>
-        <div class="team-name">JFC青桐</div>
+    <!-- カテゴリ1：主催チーム -->
+    <div class="team-cat-group">
+      <h3 class="team-cat-label">Host Teams<span class="cat-jp">主催チーム</span><span class="cat-count">3チーム</span></h3>
+      <div class="teams-grid">
+        <div class="team-card cat-host">
+          <div class="team-pref">TOKYO ／ 東京都</div>
+          <div class="team-name">自由が丘SC A</div>
+          <div class="team-desc">目黒区自由が丘周辺の小学校や私立に通う地域の子ども200名弱在籍</div>
+        </div>
+        <div class="team-card cat-host">
+          <div class="team-pref">TOKYO ／ 東京都</div>
+          <div class="team-name">自由が丘SC B</div>
+          <div class="team-desc">目黒区自由が丘周辺の小学校や私立に通う地域の子ども200名弱在籍</div>
+        </div>
+        <div class="team-card cat-host">
+          <div class="team-pref">TOKYO ／ 東京都</div>
+          <div class="team-name">METAサッカースクール選抜</div>
+          <div class="team-desc">関東4都県で7校を運営するMETAサッカースクールの選抜チーム</div>
+        </div>
       </div>
     </div>
+
+    <!-- カテゴリ2：Jリーグサッカースクール -->
+    <div class="team-cat-group">
+      <h3 class="team-cat-label">J-League School<span class="cat-jp">Jリーグサッカースクール</span><span class="cat-count">2チーム</span></h3>
+      <div class="teams-grid">
+        <div class="team-card cat-jleague">
+          <div class="team-pref">IBARAKI ／ 茨城県</div>
+          <div class="team-name">鹿島アントラーズ スクール選抜</div>
+          <div class="team-desc">J1鹿島アントラーズのサッカースクール選抜チーム</div>
+        </div>
+        <div class="team-card cat-jleague">
+          <div class="team-pref">TOYAMA ／ 富山県</div>
+          <div class="team-name">カターレ富山 スクール選抜</div>
+          <div class="team-desc">J2カターレ富山のサッカースクール選抜チーム</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- カテゴリ3：街クラブ -->
+    <div class="team-cat-group">
+      <h3 class="team-cat-label">Local Clubs<span class="cat-jp">街クラブ</span><span class="cat-count">5チーム</span></h3>
+      <div class="teams-grid">
+        <div class="team-card cat-local">
+          <div class="team-pref">NAGANO ／ 長野県</div>
+          <div class="team-name">長野アンビシャス A</div>
+          <div class="team-desc">地元長野県チーム代表・在籍人数200名超／2022年全日本U-12サッカー選手権大会ベスト16</div>
+        </div>
+        <div class="team-card cat-local">
+          <div class="team-pref">NAGANO ／ 長野県</div>
+          <div class="team-name">長野アンビシャス B</div>
+          <div class="team-desc">地元長野県チーム代表・在籍人数200名超／2022年全日本U-12サッカー選手権大会ベスト16</div>
+        </div>
+        <div class="team-card cat-local">
+          <div class="team-pref">GUNMA ／ 群馬県</div>
+          <div class="team-name">高崎KⅡビクトリーズ</div>
+          <div class="team-desc">2024年全日本U-12フットサル選手権大会（バーモントカップ）出場／群馬県1部トップリーグ所属</div>
+        </div>
+        <div class="team-card cat-local">
+          <div class="team-pref">YAMANASHI ／ 山梨県</div>
+          <div class="team-name">CDY.ESCOLA</div>
+          <div class="team-desc">山梨県甲府市／笛吹市を中心に活動するサッカースクール</div>
+        </div>
+        <div class="team-card cat-local">
+          <div class="team-pref">YAMANASHI ／ 山梨県</div>
+          <div class="team-name">JFC青桐</div>
+          <div class="team-desc">山梨県甲府市を中心に活動するサッカークラブ</div>
+        </div>
+      </div>
+    </div>
+
     <p class="teams-note">
-      ※ 上記は参加が確定したチームの一部です。全16チーム（先着順）で開催予定で、出場チームは決定次第このページで順次公開いたします。
+      ※ 全10チームの出場が確定しています。予選ブロック抽選結果は下記の <a href="#blocks" style="color:var(--gold-light); text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">予選ブロック</a> をご覧ください。
     </p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="section-wrap">
+    <div class="label-tag">Group Stage</div>
+    <h2 class="sec-title">予選ブロック</h2>
+    <div class="gold-rule"></div>
+    <div class="teams-lead">
+      10チームを <span class="em">A・B の2ブロック</span> に分け、各ブロック5チームによる総当たり戦。
+    </div>
+    <div class="blocks-grid">
+      <div class="block-card">
+        <div class="block-head">BLOCK A</div>
+        <ul class="block-list">
+          <li><span class="slot">A</span>自由が丘SC A</li>
+          <li><span class="slot">B</span>鹿島アントラーズ スクール選抜</li>
+          <li><span class="slot">C</span>長野アンビシャス B</li>
+          <li><span class="slot">D</span>METAサッカースクール選抜</li>
+          <li><span class="slot">E</span>CDY.ESCOLA</li>
+        </ul>
+      </div>
+      <div class="block-card">
+        <div class="block-head">BLOCK B</div>
+        <ul class="block-list">
+          <li><span class="slot">F</span>自由が丘SC B</li>
+          <li><span class="slot">G</span>カターレ富山 スクール選抜</li>
+          <li><span class="slot">H</span>長野アンビシャス A</li>
+          <li><span class="slot">I</span>高崎KⅡビクトリーズ</li>
+          <li><span class="slot">J</span>JFC青桐</li>
+        </ul>
+      </div>
+    </div>
+    <p class="blocks-note">
+      ※ 順位決定戦：予選リーグ順位による上位／下位トーナメント形式。決着がつかない場合は即PK戦（3人制）。<br>
+      ※ 試合形式：JFA「8人制サッカー競技規則」に準ずる。<br>
+      ※ 表彰式後に、各チーム優秀選手によるエキシビションマッチを行う予定です。
+    </p>
+
+    <!-- Matchday Live -->
+    <div class="matchday-card">
+      <div class="md-icon">ML</div>
+      <div class="md-body">
+        <div class="md-ttl">Matchday Live</div>
+        <div class="md-jp">試合スケジュール・結果 配信中</div>
+        <div class="md-desc">試合のスケジュール・結果は、サッカー大会情報配信プラットフォーム「Matchday Live」でご覧いただけます。（大会までに準備します）</div>
+      </div>
+      <a href="https://matchday-live.com/race/iyep3Bay" target="_blank" rel="noopener" class="md-btn">試合結果を見る →</a>
+    </div>
   </div>
 </section>
 
@@ -1057,16 +1303,48 @@
       <div class="access-card">
         <h4>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="13" rx="2"></rect><path d="M5 13h14"></path><path d="M8 19l-2 2M16 19l2 2"></path><circle cx="8.5" cy="16.5" r="1"></circle><circle cx="15.5" cy="16.5" r="1"></circle></svg>
-          電車でお越しの場合
+          電車・バスでお越しの場合
         </h4>
         <ul>
           <li>JR大糸線「白馬駅」より <b>タクシー約10分</b></li>
           <li>北陸新幹線「長野駅」より <b>特急バス約70分</b></li>
-          <li>送迎ご希望の方は事務局までご連絡ください</li>
+          <li>会場最寄りバス停：<b>「特急切久保」</b>から徒歩</li>
         </ul>
       </div>
     </div>
-    <p class="access-note">会場：白馬岩岳 切久保館 専用天然芝グラウンド（〒399-9301 長野県北安曇郡白馬村北城12276）</p>
+
+    <!-- 駐車・応援時の注意事項 -->
+    <div class="access-warning">
+      <div class="w-ttl">Parking &amp; Traffic ／ 駐車・交通のご注意</div>
+      <ul>
+        <li>グラウンド駐車スペースは限られており、<b>各チーム1台のみ</b>でお願いします。</li>
+        <li>父兄の応援の方は、各チームの<b>宿泊施設に駐車</b>し、徒歩または最寄りバス停「特急切久保」から徒歩でお越しください。</li>
+        <li>路上駐車、他施設への駐車は厳禁です。特に <b>白馬岩岳マウンテンリゾートへの駐車は高額請求</b>されます。大会側では責任を負いかねますのでご注意ください。</li>
+        <li>グラウンド入口付近は<b>見通しの悪い曲がり道</b>となっており、交通量も多く過去に事故も発生しています。<b>停車やタクシー等での乗降は大変危険</b>ですのでおやめください。</li>
+        <li>バス停「岩岳新田」に<b>駐車スペースあり</b>。そちらに駐車頂き、バスで会場までお越しいただくことも可能です。</li>
+      </ul>
+    </div>
+
+    <p class="access-note" style="margin-top:1.6rem;">会場：白馬岩岳 切久保館 専用天然芝グラウンド（〒399-9301 長野県北安曇郡白馬村北城12276）</p>
+
+    <!-- 周辺スポット紹介 -->
+    <div style="margin-top:3rem;">
+      <h3 class="team-cat-label">Nearby Spots<span class="cat-jp">周辺スポット・川遊び</span></h3>
+      <div class="nearby-grid">
+        <div class="nearby-card">
+          <div class="n-day">Day 1 ／ 8/28（金）</div>
+          <div class="n-name">白馬47 マウンテンスポーツパーク</div>
+          <div class="n-desc">交流戦後、選手たちで<b>魚のつかみ取り・川遊び</b>を楽しめるスポット。1日目の宿舎近く。</div>
+          <a href="https://www.hakuba47.co.jp/summer/" target="_blank" rel="noopener" class="n-link">公式サイト →</a>
+        </div>
+        <div class="nearby-card">
+          <div class="n-day">Day 2・3 ／ 8/29・30</div>
+          <div class="n-name">松川流域</div>
+          <div class="n-desc">試合の合間に川遊びを楽しめる<b>松川橋周辺</b>。駐車スペースからすぐ川に入れ、流れが緩やかでおすすめ。</div>
+          <a href="https://www.vill.hakuba.nagano.jp/" target="_blank" rel="noopener" class="n-link">白馬村観光情報 →</a>
+        </div>
+      </div>
+    </div>
     <div style="margin-top:1.2rem;">
       <a href="https://maps.app.goo.gl/XD4phLXedH7NgFEv8" target="_blank" rel="noopener"
          style="display:inline-flex; align-items:center; gap:.5rem;
@@ -1138,18 +1416,21 @@
       </tr>
       <tr>
         <th>募集チーム数</th>
-        <td>16チーム　<span style="font-size:.82rem;color:rgba(14,42,71,0.5);">※先着順／定員になり次第締切</span></td>
+        <td>10チーム　<span style="font-size:.82rem;color:rgba(14,42,71,0.5);">※出場チーム決定</span></td>
       </tr>
       <tr>
         <th>大会参加費</th>
-        <td>20,000円（税込）/ 1チーム</td>
+        <td>
+          20,000円（税込）／ 1チーム<br>
+          <span style="font-size:.82rem;color:rgba(14,42,71,0.5);">※別途ご案内の銀行口座へお支払いをお願いいたします</span>
+        </td>
       </tr>
       <tr>
         <th>個人参加費</th>
         <td>
-          <strong>3日間参加の場合：</strong>24,000円（税込・2泊食事付き）<br>
+          <strong>3日間参加の場合：</strong>24,000円（税込・2泊4食付き）<br>
           <strong>2日間参加の場合：</strong>13,000円（税込・1泊食事付き）<br>
-          <span style="font-size:.82rem;color:rgba(14,42,71,0.5);">※いずれも1名あたり　目安／昼食は弁当予定</span>
+          <span style="font-size:.82rem;color:rgba(14,42,71,0.5);">※いずれも1名あたり　昼食はお弁当予定</span>
         </td>
       </tr>
       <tr>
@@ -1202,43 +1483,46 @@
       <div class="day-card">
         <div class="day-head">
           <div class="day-num">DAY 1</div>
-          <div class="day-label">8/28（金）・交流戦</div>
+          <div class="day-label">8/28（金）・交流戦 <span style="font-size:.7rem; display:block; letter-spacing:.14em; color:rgba(255,255,255,0.75); margin-top:.2rem;">@ スノーハープ</span></div>
         </div>
         <div class="day-body">
-          <div class="ev"><div class="t">12:00〜</div><div class="d">受付</div></div>
-          <div class="ev"><div class="t">13:00〜</div><div class="d">希望チームによる交流戦<br><span style="font-size:.75rem;color:rgba(14,42,71,0.5);">早く到着したチームからグラウンド利用可</span></div></div>
-          <div class="ev"><div class="t">17:00〜</div><div class="d">宿舎チェックイン／夕食</div></div>
+          <div class="ev"><div class="t">11:00〜</div><div class="d">チーム集合・監督会議</div></div>
+          <div class="ev"><div class="t">12:00〜</div><div class="d">交流戦</div></div>
+          <div class="ev"><div class="t">15:30〜</div><div class="d">川遊び・魚つかみ取り<br><span style="font-size:.75rem;color:rgba(14,42,71,0.5);">白馬47マウンテンスポーツパーク</span></div></div>
+          <div class="ev"><div class="t">16:30〜</div><div class="d">移動・宿舎チェックイン</div></div>
+          <div class="ev"><div class="t">19:00〜</div><div class="d">夕食・自由時間</div></div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-head">
           <div class="day-num">DAY 2</div>
-          <div class="day-label">8/29（土）・予選リーグ</div>
+          <div class="day-label">8/29（土）・予選リーグ <span style="font-size:.7rem; display:block; letter-spacing:.14em; color:rgba(255,255,255,0.75); margin-top:.2rem;">@ 切久保館グラウンド</span></div>
         </div>
         <div class="day-body">
-          <div class="ev"><div class="t">07:00〜</div><div class="d">朝食</div></div>
-          <div class="ev"><div class="t">08:30〜</div><div class="d">予選リーグ開始（各チーム3試合）</div></div>
-          <div class="ev"><div class="t">14:00〜</div><div class="d">交流イベント</div></div>
-          <div class="ev"><div class="t">18:30〜</div><div class="d">夕食</div></div>
+          <div class="ev"><div class="t">09:00〜</div><div class="d">チーム集合・受付<br><span style="font-size:.75rem;color:rgba(14,42,71,0.5);">1泊2日参加チームはこちら</span></div></div>
+          <div class="ev"><div class="t">10:00〜</div><div class="d">予選リーグ試合開始<br><span style="font-size:.75rem;color:rgba(14,42,71,0.5);">A・B 2ブロック（各5チーム）で総当たり</span></div></div>
+          <div class="ev"><div class="t">15時頃</div><div class="d">交流イベント：スイカ割り</div></div>
+          <div class="ev"><div class="t">16:00〜</div><div class="d">松川流域で川遊び<br><span style="font-size:.75rem;color:rgba(14,42,71,0.5);">グラウンドに残って練習試合も可</span></div></div>
+          <div class="ev"><div class="t">19:00〜</div><div class="d">夕食・自由時間</div></div>
         </div>
       </div>
       <div class="day-card">
         <div class="day-head">
           <div class="day-num">DAY 3</div>
-          <div class="day-label">8/30（日）・順位決定戦</div>
+          <div class="day-label">8/30（日）・決勝トーナメント <span style="font-size:.7rem; display:block; letter-spacing:.14em; color:rgba(255,255,255,0.75); margin-top:.2rem;">@ 切久保館グラウンド</span></div>
         </div>
         <div class="day-body">
-          <div class="ev"><div class="t">07:00〜</div><div class="d">朝食・チェックアウト準備</div></div>
-          <div class="ev"><div class="t">08:30〜</div><div class="d">準決勝・各順位決定戦</div></div>
-          <div class="ev"><div class="t">10:30〜</div><div class="d">3位決定戦・各順位決定戦</div></div>
-          <div class="ev"><div class="t">11:30〜</div><div class="d">決勝戦</div></div>
-          <div class="ev"><div class="t">13:30〜</div><div class="d">閉会式・表彰式／解散</div></div>
+          <div class="ev"><div class="t">08:00〜</div><div class="d">チーム集合・各自アップ</div></div>
+          <div class="ev"><div class="t">09:00〜</div><div class="d">試合開始<br><span style="font-size:.75rem;color:rgba(14,42,71,0.5);">上位／下位トーナメント・順位決定戦</span></div></div>
+          <div class="ev"><div class="t">12:10〜</div><div class="d">決勝戦</div></div>
+          <div class="ev"><div class="t">13:00〜</div><div class="d">閉会式・表彰式</div></div>
+          <div class="ev"><div class="t">〜</div><div class="d">優秀選手によるエキシビションマッチ<br><span style="font-size:.75rem;color:rgba(14,42,71,0.5);">終了後、順次解散</span></div></div>
         </div>
       </div>
     </div>
 
     <div style="margin-top:2rem; display:flex; flex-wrap:wrap; gap:.6rem 1.5rem; font-size:.84rem; color:rgba(14,42,71,0.6); line-height:1.7;">
-      <span><strong style="color:var(--gold-light);">予選リーグ：</strong>16チームを A・B・C・D の4ブロック（各4チーム）に分け総当たり</span>
+      <span><strong style="color:var(--gold-light);">予選リーグ：</strong>10チームを A・B の2ブロック（各5チーム）に分け総当たり</span>
       <span><strong style="color:var(--gold-light);">順位決定戦：</strong>予選同順位によるトーナメント（決着がつかない場合は即PK戦／3人制）</span>
     </div>
     <p style="margin-top:1rem; font-size:.78rem; color:rgba(14,42,71,0.42);">
@@ -1334,16 +1618,16 @@
     <h2 class="sec-title">参加エントリー</h2>
     <div class="gold-rule" style="margin:0 auto 2rem;"></div>
     <p class="entry-note">
-      エントリー受付中です。<strong style="color:var(--gold-light);">先着順</strong>で、定員16チームに達し次第、締切日前でも受付を終了いたします。<br>
-      ご参加をご検討のチームはお早めにお申し込みください。
+      おかげさまで<strong style="color:var(--gold-light);">全10チームの出場が確定</strong>いたしました。<br>
+      2026年8月28日〜30日の大会本番に向けて、鋭意準備を進めております。
     </p>
     <div class="deadline-box">
-      <div class="dlabel">エントリー締切</div>
-      <div class="ddate">2026.6.30 SUN</div>
-      <div style="font-size:.72rem; letter-spacing:.12em; color:rgba(14,42,71,0.55); margin-top:.4rem;">※定員に達し次第、締切前でも受付終了</div>
+      <div class="dlabel">Roster Closed</div>
+      <div class="ddate">エントリー受付終了</div>
+      <div style="font-size:.72rem; letter-spacing:.12em; color:rgba(14,42,71,0.55); margin-top:.4rem;">出場チームは<a href="#teams" style="color:var(--gold-light); text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">TEAMS</a>セクションをご覧ください</div>
     </div>
     <br><br>
-    <a href="https://forms.gle/P5Rz1Xx3mSYLcUs27" target="_blank" rel="noopener" class="btn-primary">エントリーフォームへ →</a>
+    <a href="#teams" class="btn-primary">出場10チームを見る →</a>
   </div>
 </div>
 
@@ -1355,12 +1639,13 @@
     <div class="gold-rule"></div>
 
     <p class="sponsors-lead">
-      Hakuba SamaSama Summer Cup 2026 は、下記の企業様のご協賛・ご協力により実現いたします。<br>
-      子どもたちの真剣な夏を、共に支えてくださる皆様に心より御礼申し上げます。
+      本大会は、<strong style="color:var(--gold-light);">子どもたちの挑戦と白馬の夏の地域活性</strong>を支えるパートナー企業の皆様とともに開催します。<br>
+      Hakuba SamaSama Summer Cup 2026 の趣旨にご賛同いただき、心より御礼申し上げます。
     </p>
 
     <div class="sponsor-tier">
       <h3 class="tier-label">Premier Sponsor<span class="tier-jp">／ トップパートナー</span></h3>
+      <p class="tier-role">大会全体を支えるトップパートナー</p>
       <div class="sponsor-grid tier-premier">
         <a href="https://www.jvckenwood.com/jp/" target="_blank" rel="noopener" class="sponsor-card premier-tier" aria-label="株式会社JVCケンウッドの公式サイトへ">
           <img src="img/sponsors/kenwood.png" alt="株式会社JVCケンウッド ロゴ">
@@ -1371,6 +1656,7 @@
 
     <div class="sponsor-tier">
       <h3 class="tier-label">Special Sponsors<span class="tier-jp">／ 特別協賛</span></h3>
+      <p class="tier-role">白馬での育成・交流機会づくりを支援</p>
       <div class="sponsor-grid tier-special">
         <a href="https://www.aura-inv.co.jp/" target="_blank" rel="noopener" class="sponsor-card special-tier" aria-label="株式会社オーラの公式サイトへ">
           <img src="img/sponsors/aura.png" alt="株式会社オーラ ロゴ">
@@ -1381,6 +1667,7 @@
 
     <div class="sponsor-tier">
       <h3 class="tier-label">Sponsors<span class="tier-jp">／ 協賛</span></h3>
+      <p class="tier-role">参加選手と大会運営を支援</p>
       <div class="sponsor-grid tier-sponsor">
         <a href="https://free-peace.co.jp/" target="_blank" rel="noopener" class="sponsor-card" aria-label="株式会社FREE PEACEの公式サイトへ">
           <img src="img/sponsors/freepeace.png" alt="株式会社FREE PEACE ロゴ">
@@ -1391,10 +1678,11 @@
 
     <div class="sponsor-tier">
       <h3 class="tier-label">Technical Partner<span class="tier-jp">／ 技術協賛</span></h3>
+      <p class="tier-role">AIスポーツカメラによる全試合撮影を支援</p>
       <div class="sponsor-grid tier-tech">
         <a href="https://www.allclip.co/ja/" target="_blank" rel="noopener" class="sponsor-card" aria-label="Allclipの公式サイトへ">
-          <img src="img/sponsors/allclip.png" alt="Allclip ロゴ">
-          <div class="sponsor-name">Allclip</div>
+          <img src="img/sponsors/allclip.png" alt="AllClip ロゴ">
+          <div class="sponsor-name">株式会社AllClip</div>
           <div class="sponsor-tag">大会中の全試合を撮影</div>
           <p class="sponsor-desc">1台のカメラが、<span class="em">AIスポーツカメラ</span>に。全てのチームで、試合撮影と振り返りを手軽に自動化。</p>
         </a>
@@ -1416,6 +1704,8 @@
     <div class="contact-grid">
       <div class="cc">
         <h3>大会に関するお問い合わせ</h3>
+        <p style="font-size:.82rem; color:rgba(14,42,71,0.6); margin-bottom:.5rem;">Hakuba SamaSama Summer Cup 大会事務局</p>
+        <p style="font-size:.82rem; color:rgba(14,42,71,0.6); margin-bottom:.7rem;">担当：<b style="color:var(--navy);">高橋</b>（SamaSama Lodge Hakuba）</p>
         <a href="mailto:hakubacupsoccer@gmail.com" style="color:var(--muted);">hakubacupsoccer@gmail.com</a>
         <a href="tel:08096983017" style="margin-top:.4rem;">TEL：080-9698-3017</a>
         <a href="https://www.instagram.com/hakuba_samasama_summer_cup/" target="_blank" rel="noopener" style="margin-top:.4rem;">Instagram：@hakuba_samasama_summer_cup</a>
@@ -1423,6 +1713,7 @@
       <div class="cc">
         <h3>会場・宿泊に関するお問い合わせ</h3>
         <p>大会実行委員会事務局</p>
+        <p style="font-size:.82rem; color:rgba(14,42,71,0.6); margin-top:.35rem;">担当：<b style="color:var(--navy);">高橋</b>（SamaSama Lodge Hakuba）</p>
         <a href="tel:08096983017" style="margin-top:.4rem;">TEL：080-9698-3017</a>
       </div>
       <div class="cc">
