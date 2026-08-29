@@ -467,6 +467,47 @@
     font-family:'Oswald',sans-serif; font-size:.74rem;
     letter-spacing:.14em; color:var(--gold); min-width:22px;
   }
+  /* リザルトテーブル */
+  .block-table {
+    width:100%; border-collapse:collapse;
+    font-size:.86rem; color:var(--navy);
+  }
+  .block-table th, .block-table td {
+    padding:.55rem .5rem; border-bottom:1px solid var(--border);
+    text-align:center; vertical-align:middle;
+  }
+  .block-table th {
+    font-family:'Oswald',sans-serif; font-size:.62rem;
+    letter-spacing:.12em; color:rgba(14,42,71,0.55);
+    font-weight:700; background:rgba(200,146,42,0.06);
+  }
+  .block-table td.team {
+    text-align:left; font-weight:700; padding-left:.7rem;
+    font-size:.84rem; line-height:1.35;
+  }
+  .block-table td.rank {
+    font-family:'Oswald',sans-serif; font-size:.85rem;
+    font-weight:700; color:rgba(14,42,71,0.6); min-width:22px;
+  }
+  .block-table tr.rk-1 { background:linear-gradient(90deg, rgba(200,146,42,0.18), rgba(200,146,42,0.03)); }
+  .block-table tr.rk-1 td.rank { color:var(--gold); }
+  .block-table tr.rk-1 td.team { color:var(--gold); }
+  .block-table tr.rk-2 { background:rgba(156,163,175,0.12); }
+  .block-table tr.rk-2 td.rank { color:#6b7280; }
+  .block-table tr.rk-3 { background:rgba(176,106,42,0.09); }
+  .block-table tr.rk-3 td.rank { color:#b06a2a; }
+  .block-table td.pt { font-family:'Oswald',sans-serif; font-weight:700; font-size:.9rem; color:var(--navy); }
+  .block-table td.gd-plus { color:#2e9e5b; font-weight:700; }
+  .block-table td.gd-minus { color:#b04040; }
+  .block-table .medal {
+    display:inline-block; width:18px; height:18px; line-height:18px;
+    text-align:center; margin-right:.15rem;
+  }
+  @media (max-width:520px) {
+    .block-table { font-size:.78rem; }
+    .block-table th, .block-table td { padding:.45rem .3rem; }
+    .block-table td.team { font-size:.78rem; padding-left:.4rem; }
+  }
   .blocks-note {
     font-size:.82rem; color:rgba(14,42,71,0.6); margin-top:1.4rem; line-height:1.75;
   }
@@ -931,6 +972,11 @@
     <h2 class="sec-title" style="font-size:clamp(1.8rem,4vw,2.6rem);">最新情報</h2>
     <div class="gold-rule"></div>
     <div class="news-row">
+      <span class="news-date">2026.08.28</span>
+      <span class="news-cat info">RESULTS</span>
+      <span class="news-text">大会初日 予選リーグ全試合が終了しました。<strong style="color:var(--gold-light);">BLOCK A：自由が丘SC A</strong>、<strong style="color:var(--gold-light);">BLOCK B：高崎KⅡビクトリーズ</strong>が首位で予選リーグを突破。詳細な順位・スコアは <a href="#blocks" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">初日 予選リーグ結果</a> をご覧ください。</span>
+    </div>
+    <div class="news-row">
       <span class="news-date">2026.08.05</span>
       <span class="news-cat">SPONSORS</span>
       <span class="news-text">技術協賛の<strong style="color:var(--gold-light);">株式会社AllClip</strong>様により、<strong style="color:var(--gold-light);">大会中の全試合をAIスポーツカメラで撮影</strong>いたします。1台のカメラがAIスポーツカメラに。全てのチームで、試合撮影と振り返りを手軽に自動化できます。詳細は<a href="#sponsors" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">大会協賛</a>ページをご覧ください。</span>
@@ -1113,7 +1159,7 @@
     </div>
 
     <p class="teams-note">
-      ※ 全10チームの出場が確定しています。予選ブロック抽選結果は下記の <a href="#blocks" style="color:var(--gold-light); text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">予選ブロック</a> をご覧ください。
+      ※ 全10チームの出場が確定しています。8/28（金）予選リーグの順位は下記の <a href="#blocks" style="color:var(--gold-light); text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">初日 予選リーグ結果</a> をご覧ください。
     </p>
   </div>
 </section>
@@ -1121,32 +1167,49 @@
 <!-- BLOCKS -->
 <section id="blocks">
   <div class="section-wrap">
-    <div class="label-tag">Group Stage</div>
-    <h2 class="sec-title">予選ブロック</h2>
+    <div class="label-tag">Group Stage Results</div>
+    <h2 class="sec-title">初日 予選リーグ結果</h2>
     <div class="gold-rule"></div>
     <div class="teams-lead">
-      10チームを <span class="em">A・B の2ブロック</span> に分け、各ブロック5チームによる総当たり戦。
+      8/28（金）予選リーグ全試合終了。<br>
+      <span class="em">上位・下位トーナメント</span>への進出順位が確定しました。
     </div>
     <div class="blocks-grid">
       <div class="block-card">
         <div class="block-head">BLOCK A</div>
-        <ul class="block-list">
-          <li><span class="slot">A</span>自由が丘SC A</li>
-          <li><span class="slot">B</span>鹿島アントラーズ スクール選抜</li>
-          <li><span class="slot">C</span>長野アンビシャス B</li>
-          <li><span class="slot">D</span>METAサッカースクール選抜</li>
-          <li><span class="slot">E</span>CDY.ESCOLA</li>
-        </ul>
+        <table class="block-table">
+          <thead>
+            <tr>
+              <th>順位</th><th style="text-align:left; padding-left:.7rem;">チーム</th>
+              <th>勝点</th><th>得点</th><th>失点</th><th>得失</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="rk-1"><td class="rank"><span class="medal">🥇</span>1</td><td class="team">自由が丘SC A</td><td class="pt">10</td><td>20</td><td>0</td><td class="gd-plus">+20</td></tr>
+            <tr class="rk-2"><td class="rank"><span class="medal">🥈</span>2</td><td class="team">鹿島アントラーズ スクール選抜</td><td class="pt">9</td><td>26</td><td>2</td><td class="gd-plus">+24</td></tr>
+            <tr class="rk-3"><td class="rank"><span class="medal">🥉</span>3</td><td class="team">METAサッカースクール選抜</td><td class="pt">7</td><td>14</td><td>4</td><td class="gd-plus">+10</td></tr>
+            <tr><td class="rank">4</td><td class="team">長野アンビシャス B</td><td class="pt">3</td><td>2</td><td>24</td><td class="gd-minus">-22</td></tr>
+            <tr><td class="rank">5</td><td class="team">CDY.ESCOLA</td><td class="pt">0</td><td>0</td><td>32</td><td class="gd-minus">-32</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="block-card">
         <div class="block-head">BLOCK B</div>
-        <ul class="block-list">
-          <li><span class="slot">F</span>自由が丘SC B</li>
-          <li><span class="slot">G</span>カターレ富山 スクール選抜</li>
-          <li><span class="slot">H</span>長野アンビシャス A</li>
-          <li><span class="slot">I</span>高崎KⅡビクトリーズ</li>
-          <li><span class="slot">J</span>JFC青桐</li>
-        </ul>
+        <table class="block-table">
+          <thead>
+            <tr>
+              <th>順位</th><th style="text-align:left; padding-left:.7rem;">チーム</th>
+              <th>勝点</th><th>得点</th><th>失点</th><th>得失</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="rk-1"><td class="rank"><span class="medal">🥇</span>1</td><td class="team">高崎KⅡビクトリーズ</td><td class="pt">12</td><td>24</td><td>0</td><td class="gd-plus">+24</td></tr>
+            <tr class="rk-2"><td class="rank"><span class="medal">🥈</span>2</td><td class="team">長野アンビシャス A</td><td class="pt">9</td><td>12</td><td>2</td><td class="gd-plus">+10</td></tr>
+            <tr class="rk-3"><td class="rank"><span class="medal">🥉</span>3</td><td class="team">自由が丘SC B</td><td class="pt">6</td><td>9</td><td>14</td><td class="gd-minus">-5</td></tr>
+            <tr><td class="rank">4</td><td class="team">カターレ富山 スクール選抜</td><td class="pt">1</td><td>2</td><td>12</td><td class="gd-minus">-10</td></tr>
+            <tr><td class="rank">5</td><td class="team">JFC青桐</td><td class="pt">1</td><td>1</td><td>20</td><td class="gd-minus">-19</td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <p class="blocks-note">
