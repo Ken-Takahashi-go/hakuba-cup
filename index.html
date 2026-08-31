@@ -467,6 +467,83 @@
     font-family:'Oswald',sans-serif; font-size:.74rem;
     letter-spacing:.14em; color:var(--gold); min-width:22px;
   }
+  /* 決勝トーナメント */
+  #tournament { border-top:1px solid var(--border); background:rgba(200,146,42,0.04); }
+  .tournament-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2rem; }
+  .tournament-card { background:#fff; border:1px solid var(--border); border-radius:6px; overflow:hidden; }
+  .tournament-card.upper .t-head {
+    background:linear-gradient(135deg, #b8842c, var(--gold-light));
+    color:#fff; padding:.85rem 1.2rem;
+    font-family:'Oswald',sans-serif; font-size:1rem; letter-spacing:.14em; font-weight:700;
+  }
+  .tournament-card.lower .t-head {
+    background:linear-gradient(135deg, #4a5568, #6b7280);
+    color:#fff; padding:.85rem 1.2rem;
+    font-family:'Oswald',sans-serif; font-size:1rem; letter-spacing:.14em; font-weight:700;
+  }
+  .match-table { width:100%; border-collapse:collapse; font-size:.86rem; color:var(--navy); }
+  .match-table td {
+    padding:.55rem .5rem; border-bottom:1px solid var(--border);
+    vertical-align:middle;
+  }
+  .match-table tr:last-child td { border-bottom:none; }
+  .match-table td.phase {
+    font-family:'Oswald',sans-serif; font-size:.66rem; letter-spacing:.12em;
+    color:var(--gold); font-weight:700; width:78px; text-align:center;
+    background:rgba(200,146,42,0.06);
+    white-space:nowrap;
+  }
+  .match-table td.winner {
+    font-weight:700; color:var(--navy); padding-left:.7rem;
+    text-align:right;
+  }
+  .match-table td.score {
+    font-family:'Oswald',sans-serif; font-weight:700; font-size:.95rem;
+    text-align:center; color:var(--navy); width:64px;
+    background:rgba(14,42,71,0.04);
+  }
+  .match-table td.loser {
+    color:rgba(14,42,71,0.65); padding-left:.7rem;
+  }
+  .match-table tr.final { background:rgba(200,146,42,0.14); }
+  .match-table tr.final td.winner { color:var(--gold); font-size:.94rem; }
+  .match-table tr.final td.phase { color:var(--gold-light); background:rgba(200,146,42,0.14); }
+  .match-table tr.final td.score { background:rgba(200,146,42,0.14); font-size:1.05rem; }
+  .final-rankings {
+    background:linear-gradient(180deg, #fff 0%, rgba(200,146,42,0.05) 100%);
+    border:1px solid var(--border); border-radius:6px;
+    padding:1.5rem 1.6rem; margin-top:2rem;
+  }
+  .fr-head {
+    font-family:'Oswald',sans-serif; font-size:.88rem; letter-spacing:.18em;
+    color:var(--gold); text-transform:uppercase; font-weight:700;
+    padding-bottom:.6rem; border-bottom:2px solid var(--gold-light);
+    margin-bottom:.9rem;
+  }
+  .fr-head .jp {
+    font-family:'Noto Sans JP',sans-serif; font-size:.92rem; color:var(--navy);
+    letter-spacing:.08em; margin-left:.7rem;
+  }
+  .rankings-table { width:100%; border-collapse:collapse; font-size:.92rem; color:var(--navy); }
+  .rankings-table td { padding:.5rem .6rem; border-bottom:1px solid var(--border); }
+  .rankings-table tr:last-child td { border-bottom:none; }
+  .rankings-table td.rk {
+    font-family:'Oswald',sans-serif; font-weight:700;
+    width:60px; text-align:center; color:rgba(14,42,71,0.55);
+  }
+  .rankings-table td.tm { font-weight:700; }
+  .rankings-table tr.rk-1 { background:linear-gradient(90deg, rgba(200,146,42,0.2), rgba(200,146,42,0.02)); }
+  .rankings-table tr.rk-1 td.rk, .rankings-table tr.rk-1 td.tm { color:var(--gold); }
+  .rankings-table tr.rk-2 { background:rgba(156,163,175,0.14); }
+  .rankings-table tr.rk-2 td.rk { color:#6b7280; }
+  .rankings-table tr.rk-3 { background:rgba(176,106,42,0.1); }
+  .rankings-table tr.rk-3 td.rk { color:#b06a2a; }
+  @media (max-width:640px) {
+    .tournament-grid { grid-template-columns:1fr; }
+    .match-table td.phase { width:60px; font-size:.58rem; }
+    .match-table td.winner, .match-table td.loser { font-size:.78rem; }
+  }
+
   /* リザルトテーブル */
   .block-table {
     width:100%; border-collapse:collapse;
@@ -972,6 +1049,11 @@
     <h2 class="sec-title" style="font-size:clamp(1.8rem,4vw,2.6rem);">最新情報</h2>
     <div class="gold-rule"></div>
     <div class="news-row">
+      <span class="news-date">2026.08.29</span>
+      <span class="news-cat">RESULTS</span>
+      <span class="news-text">大会2日目 決勝トーナメント全試合が終了。<strong style="color:var(--gold-light);">初代王者は「鹿島アントラーズ スクール」🏆</strong>（決勝 4-1 自由が丘SC A）。下位トーナメント優勝は <strong style="color:var(--gold-light);">METAサッカースクール</strong>。全10チームの最終順位は <a href="#tournament" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">決勝トーナメント結果</a> をご覧ください。</span>
+    </div>
+    <div class="news-row">
       <span class="news-date">2026.08.28</span>
       <span class="news-cat info">RESULTS</span>
       <span class="news-text">大会初日 予選リーグ全試合が終了しました。<strong style="color:var(--gold-light);">BLOCK A：自由が丘SC A</strong>、<strong style="color:var(--gold-light);">BLOCK B：高崎KⅡビクトリーズ</strong>が首位で予選リーグを突破。詳細な順位・スコアは <a href="#blocks" style="color:var(--gold-light); font-weight:700; text-decoration:none; border-bottom:1px solid rgba(200,146,42,0.4);">初日 予選リーグ結果</a> をご覧ください。</span>
@@ -1231,6 +1313,63 @@
   </div>
 </section>
 
+<!-- TOURNAMENT RESULTS -->
+<section id="tournament">
+  <div class="section-wrap">
+    <div class="label-tag">Tournament Results</div>
+    <h2 class="sec-title">2日目 決勝トーナメント結果</h2>
+    <div class="gold-rule"></div>
+    <div class="teams-lead">
+      8/29（土）決勝トーナメント全試合終了。<br>
+      <span class="em">初代王者は「鹿島アントラーズ スクール」</span> に決定！
+    </div>
+
+    <div class="tournament-grid">
+      <!-- Championship -->
+      <div class="tournament-card upper">
+        <div class="t-head">🏆 CHAMPIONSHIP ／ 上位トーナメント</div>
+        <table class="match-table">
+          <tr><td class="phase">準決勝①</td><td class="winner">自由が丘SC A</td><td class="score">3-0</td><td class="loser">長野アンビシャス A</td></tr>
+          <tr><td class="phase">準決勝②</td><td class="winner">鹿島アントラーズ スクール</td><td class="score">3-1</td><td class="loser">高崎KⅡビクトリーズ</td></tr>
+          <tr><td class="phase">3位決定戦</td><td class="winner">高崎KⅡビクトリーズ</td><td class="score">1-0</td><td class="loser">長野アンビシャス A</td></tr>
+          <tr class="final"><td class="phase">決 勝</td><td class="winner">鹿島アントラーズ スクール</td><td class="score">4-1</td><td class="loser">自由が丘SC A</td></tr>
+        </table>
+      </div>
+
+      <!-- Consolation -->
+      <div class="tournament-card lower">
+        <div class="t-head">🎖 CONSOLATION ／ 下位トーナメント</div>
+        <table class="match-table">
+          <tr><td class="phase">1回戦①</td><td class="winner">長野アンビシャス B</td><td class="score">1-0</td><td class="loser">JFC青桐</td></tr>
+          <tr><td class="phase">1回戦②</td><td class="winner">カターレ富山 スクール</td><td class="score">3-0</td><td class="loser">CDY.ESCOLA</td></tr>
+          <tr><td class="phase">準決勝①</td><td class="winner">自由が丘SC B</td><td class="score">6-0</td><td class="loser">長野アンビシャス B</td></tr>
+          <tr><td class="phase">準決勝②</td><td class="winner">METAサッカースクール</td><td class="score">3-0</td><td class="loser">カターレ富山 スクール</td></tr>
+          <tr><td class="phase">7・8位</td><td class="winner">長野アンビシャス B</td><td class="score">5-2</td><td class="loser">カターレ富山 スクール</td></tr>
+          <tr><td class="phase">9・10位</td><td class="winner">JFC青桐</td><td class="score">3-0</td><td class="loser">CDY.ESCOLA</td></tr>
+          <tr class="final"><td class="phase">5・6位</td><td class="winner">METAサッカースクール</td><td class="score">—</td><td class="loser">自由が丘SC B</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Final Rankings -->
+    <div class="final-rankings">
+      <div class="fr-head">FINAL RANKINGS<span class="jp">最終順位</span></div>
+      <table class="rankings-table">
+        <tr class="rk-1"><td class="rk">🥇 1</td><td class="tm">鹿島アントラーズ スクール</td></tr>
+        <tr class="rk-2"><td class="rk">🥈 2</td><td class="tm">自由が丘SC A</td></tr>
+        <tr class="rk-3"><td class="rk">🥉 3</td><td class="tm">高崎KⅡビクトリーズFC</td></tr>
+        <tr><td class="rk">4</td><td class="tm">長野アンビシャス A</td></tr>
+        <tr><td class="rk">5</td><td class="tm">METAサッカースクール<span style="font-size:.72rem; color:var(--gold); margin-left:.5rem; font-weight:700;">下位トーナメント優勝🏆</span></td></tr>
+        <tr><td class="rk">6</td><td class="tm">自由が丘SC B</td></tr>
+        <tr><td class="rk">7</td><td class="tm">長野アンビシャス B</td></tr>
+        <tr><td class="rk">8</td><td class="tm">カターレ富山 スクール</td></tr>
+        <tr><td class="rk">9</td><td class="tm">JFC青桐</td></tr>
+        <tr><td class="rk">10</td><td class="tm">CDY.ESCOLA</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- VENUE -->
 <div id="venue" class="full-bleed">
   <div class="section-wrap">
@@ -1482,7 +1621,7 @@
       </tr>
       <tr>
         <th>協力</th>
-        <td>切久保館、一般社団法人 Jiyugaoka Sports Community、クアンタムコーポレーション株式会社、SamaSama Lodge Hakuba</td>
+        <td>切久保館、一般社団法人 Jiyugaoka Sports Community、クアンタムコーポレーション株式会社、SamaSama Lodge Hakuba、おてつたび</td>
       </tr>
     </table>
   </div>
